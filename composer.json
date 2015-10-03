@@ -1,0 +1,26 @@
+{
+  "name" : "themes/zf2-remark",
+  "description" : "Remark - Responsive Bootstrap3 Admin Template ZF2 integration",
+  "version" : "1.0",
+  "require" : { },
+  "license" : "BSD-3-Clause",
+  "keywords" : [ "bootstrap", "theme", "Remark", "admin", "template" ],
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "master"
+    }
+  },
+  "autoload" : { },
+  "suggest" : { },
+  "scripts" : {
+    "post-install-cmd" : [ ],
+    "post-update-cmd" : [ ]
+  },
+  "type" : "module",
+  "homepage" : "http://git.dragon-projects.de:81/themes/zf2-remark",
+  "authors" : [ {
+    "name" : "Björn Bartels",
+    "email" : "bartels@dragon-projects.net",
+    "homepage" : "http://dragon-projects.net"
+  } ]
+}
