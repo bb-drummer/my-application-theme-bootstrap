@@ -23,24 +23,10 @@
 
         	echo $this->headLink();
 		?>
-        <!-- Scripts -->
-        <?php 
-        	$this->headScript()
-				->prependFile($this->basePath($themePath . 'js/app.js'))
-				->prependFile($this->basePath($themePath . 'js/doubletaptogo.min.js'))
-				->prependFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
-                ->prependFile($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.pack.js'))
-				->prependFile($this->basePath($themePath . 'js/jquery.gridster.min.js'))
-				->prependFile($this->basePath($themePath . 'js/jquery/jquery.min.js'))
-				->prependFile($this->basePath($themePath . 'js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
-				->prependFile($this->basePath($themePath . 'js/html5shiv.js'),   'text/javascript', array('conditional' => 'lt IE 9',));
-        	
-        	echo $this->headScript(); 
-        ?>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
@@ -90,6 +76,20 @@
                 </p>
             </footer>
         </div> <!-- /container -->
+        <!-- Scripts -->
+        <?php 
+        	$this->headScript()
+				->prependFile($this->basePath($themePath . 'js/app.js'))
+				->prependFile($this->basePath($themePath . 'js/doubletaptogo.min.js'))
+				->prependFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
+                ->prependFile($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.pack.js'))
+				->prependFile($this->basePath($themePath . 'js/jquery.gridster.min.js'))
+				->prependFile($this->basePath($themePath . 'js/jquery/jquery.min.js'))
+				->prependFile($this->basePath($themePath . 'js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+				->prependFile($this->basePath($themePath . 'js/html5shiv.js'),   'text/javascript', array('conditional' => 'lt IE 9',));
+        	
+        	echo $this->headScript(); 
+        ?>
         <?php echo $this->inlineScript() ?>
     </body>
 </html>
