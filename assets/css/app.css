@@ -97,7 +97,7 @@ DIV.navbar-subnav {
 }
 /* @end */
 
-/* @group sublevel navigation */
+/* @group panel sublevel navigation */
 .breadcrumb,
 .navbar-subnav {
 	padding				: 7px 5px;
@@ -140,7 +140,7 @@ DIV.navbar-subnav {
 /* @end */
 
 /* @group bootstrap overrides */
-.navbar>.container .navbar-brand {
+.navbar .navbar-brand {
 	margin-left			: -15px;
 	text-shadow			: none;
 	color				: #FFF;
@@ -151,117 +151,6 @@ DIV.navbar-subnav {
     white-space			: nowrap;
 }
 
-.navbar-nav > LI > A {
-	padding-top			: 15px;
-	padding-bottom		: 0px;
-}
-
-.navbar-inverse .navbar-nav>.active>A, 
-.navbar-inverse .navbar-nav>.active>A:hover, 
-.navbar-inverse .navbar-nav>.active>A:focus,
-.navbar-inverse .navbar-nav .active .active>A, 
-.navbar-inverse .navbar-nav .active .active>A:hover, 
-.navbar-inverse .navbar-nav .active .active>A:focus {
-	background			: none;
-	box-shadow			: none;
-}
-
-.navbar-inverse .navbar-nav .active .active, 
-.navbar-inverse .navbar-nav .active .active>A, 
-.navbar-inverse .navbar-nav .active .active>A:hover, 
-.navbar-inverse .navbar-nav .active .active>A:focus {
-	background-color	: rgba(230, 245, 250, 0.95);
-	color				: #444;
-}
-/* @end */
-
-
-/* @group responsiveness */
-@media only screen and ( max-width: 40em ) /* 640 */
-{
-    .navbar-collapse NAV
-    {
-        position		: relative;
-    }
-        .navbar-collapse NAV > A
-        {
-        }
-        .navbar-collapse NAV:not( :target ) > A:first-of-type,
-        .navbar-collapse NAV:target > A:last-of-type
-        {
-            display		: block;
-        }
-        
-    /* first level */
-	.navbar-nav > LI > A {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	} 
- 
-    .navbar-collapse NAV > UL
-    {
-        height			: auto;
-        /*display			: none;
-        position		: absolute;*/
-        left			: 0;
-        right			: 0;
-    }
-        .navbar-collapse NAV:target > UL
-        {
-            display		: block;
-        }
-        .navbar-collapse NAV > UL > LI
-        {
-            width		: 100%;
-            float		: left;
-        }
- 
-    /* second level */
- 
-    .navbar-collapse NAV LI UL
-    {
-        position		: relative;
-        width			: 100%;
-		padding			: 5px 10px;
-        border-left		: none;
-    }
-    .navbar-collapse NAV LI.active > UL
-    {
-        display			: inline-block;
-        margin-left		: 0px;
-    }
-	
-	.navbar-collapse NAV LI LI {
-		white-space		: nowrap;
-        border-top		: 1px dotted #255e91;
-        border-bottom	: none;
-		padding			: 5px 5px 5px 5px;
-		float			: left;
-		clear			: both;
-    }
-    .navbar-collapse NAV LI:hover>UL {
-		display			: block;
-		float			: left;
-		position		: relative;
-		margin			: 0px;
-		clear			: both;
-		width			: 100%;
-	}
-    /* @group media bootstrap overrides */
-	.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
-	  overflow			: visible;
-	}
-	.navbar-inverse .navbar-nav .active, 
-	.navbar-inverse .navbar-nav .active .active, 
-	.navbar-inverse .navbar-nav .active .active>A, 
-	.navbar-inverse .navbar-nav .active .active>A:hover, 
-	.navbar-inverse .navbar-nav .active .active>A:focus {
-		background-color: rgba(175, 195, 215, 1);
-		color			: #444;
-	}
-	/* @end */
-					
-}
 /* @end */
 
 /* @end */
@@ -289,189 +178,7 @@ DIV.navbar-subnav {
 .error   { background-color	: #ff0000; color	: #ffffff; }
 /* @end status code colors */
 
-/* @group content display */
-BODY {
-	font-family			: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size			: 12px;
-	line-height			: 1.428571429;
-	color				: #333;
-	background-color	: #FFF;
-    padding-top			: 70px;
-    padding-bottom		: 0px;
-}
-
-A {
-	color				: #3c86C5;
-	text-decoration		: none;
-}
-A:hover, A:focus {
-	color				: #255e91;
-	text-decoration		: underline;
-}
-
-HR {
-	margin				: 10px 0px;
-	float				: left;
-	width				: 100%;
-	clear				: both;
-}
-
-P {
-    font-size			: 14px;
-}
-
-.jumbotron P {
-    font-size			: 16px;
-}
-
-P.enabled_registration {
- 	clear				: both;
-}
-
-.page,
-.box,
-.conent,
-.page TABLE {
-	position			: relative;
-}
-
-.page SECTION.content {
-	clear				: both;
-	float				: left;
-	text-align			: left;
-	padding				: 10px;
-}
-
-.appname {
-	font-weight			: bold;
-}
-/* @end content display */
-
-/* @group panel display */
-.page PRE {
-	font-size			: 10px;
-}
-
-.panel-default A {
-	white-space			: nowrap;
-}
-.panel-default A:before {
-	content				: '[';
-	margin-right		: 2px;
-}
-.panel-default A:after {
-	content				: ']';
-	margin-left			: 2px;
-}
-.panel-default A.btn:before {
-	content				: none;
-	margin-right		: initial;
-}
-.panel-default A.btn:after {
-	content				: none;
-	margin-left			: initial;
-}
-
-.panel-body {
-	height				: auto;
-	overflow			: hidden;
-}
-/* @end panel display */
-
-/* @group table layout */
-.page TABLE {
-	width				: 100%;
-	max-width			: 100%;
-}
-.page TABLE,
-.page TABLE TR {
-	border-collapse		: initial;
-	border-spacing		: 2px;
-}
-.page TABLE,
-.page TABLE TR,
-.page TABLE TD,
-.page TABLE TH {
-	text-align			: left;
-}
-.page TABLE TD, 
-.page TABLE TH {
-	max-width			: 395px;
-	overflow			: hidden;
-	text-overflow		: ellipsis;
-	min-width			: 50px;
-	width				: auto;
-	white-space			: nowrap;
-}
-.page TABLE .error TD {
-	max-width			: 1100px;
-	min-width			: 100px;
-}
-
-thead th, th, td {
-	border-left			: none;
-	border-right		: none;
-}
-
-.matrix TD {
-	white-space			: nowrap;
-	min-width			: 70px;
-}
-
-/* @end table layout */
-
-/* @group form display */
-FORM {
-	padding				: 10px;
-	float				: left;
-}
-FORM > LABEL,
-FORM > INPUT {
-	float				: left;
-	clear				: both;
-}
-FORM INPUT,
-FORM SELECT {
-	min-width			: 200px;
-}
-FORM > LABEL > SPAN {
-	min-width			: 100px;
-	display				: inline-block;
-}
-FORM > LABEL + UL {
-	float				: left;
-	border				: 1px solid #CCC;
-	border-radius		: 6px 6px 6px 6px;
-	padding				: 0px 10px 0px 25px;
-	margin				: 0px 5px;
-	background-color	: rgba(255, 100, 100, 0.75);
-}
-
-FORM .zend_form PRE {
-  font-size				: 9pt;
-  line-height			: 9pt;
-  letter-spacing		: -2px;
-  clear					: both;
-  margin				: 0 0 5px;
-}
-
-FORM DD {
-	margin				: 0 0 5px;
-}
-
-FORM DT {
-	margin				: 0 0 5px;
-}
-
-FORM DT > LABEL {
-	float				: left;
-	min-width			: 100px;
-}
-
-FORM .zend_form BUTTON[name=submit] {
-	margin-top			: 5px;
-}
-
+/* @group acl matrix form display */
 .matrix FORM {
 	padding				: 0px;
 }
@@ -497,9 +204,6 @@ FORM .zend_form BUTTON[name=submit] {
 	width				: 20px;
 	padding				: 0px;
 }
-.page TD FORM {
-	padding				: initial;
-}
 .matrix FORM input.btn.disabled, 
 .matrix FORM input.btn[disabled], 
 .matrix FORM fieldset[disabled] input.btn {
@@ -510,33 +214,7 @@ FORM .zend_form BUTTON[name=submit] {
 	-webkit-box-shadow	: none;
 	box-shadow			: none;
 }
-/* @end form display */
-
-/* @group footer display */
-FOOTER {
-	padding-bottom		: 5px;
-    display				: inline-block;
-    width				: 100%;
-}
-FOOTER .copyright,
-FOOTER .poweredby {
-	display				: inline-block;
-	vertical-align		: middle;
-	line-height			: 20px;
-	height				: 20px;
-}
-FOOTER .copyright {
-	float				: left;
-}
-FOOTER .poweredby {
-	float				: right;
-}
-
-FOOTER a {
-	color				: #555;
-	text-decoration		: none;
-}
-/* @end footer display */
+/* @end */
 
 /* @group flashmessages */
 .flashmessages {
@@ -604,7 +282,7 @@ FOOTER a {
 	width				: auto;
 	max-width			: none;
 }
-.table > TBODY > TR > TH {
+.table.matrix > TBODY > TR > TH {
 	vertical-align		: middle;
 }
 .table.matrix > TBODY > TR > TD > FORM {
@@ -653,17 +331,5 @@ FOOTER a {
 /* @group responsiveness */
 @media only screen and ( max-width: 40em ) /* 640 */
 {
-	.btn,
-	.btn-lg {
-		padding			: 5px 10px;
-		font-size		: 12px;
-		line-height		: 1.33;
-		border-radius	: 5px;
-	}
-	
-	.panel-body {
-		max-height		: 100%;
-		overflow		: hidden;
-	}
 }
 /* @end responsiveness */
