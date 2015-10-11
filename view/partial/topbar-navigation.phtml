@@ -65,4 +65,42 @@ foreach ($this->container as $page):
 endforeach;
 $html .= '</ul>' . PHP_EOL;
 
-echo $html;
+
+if (!function_exists("bootstrapNavigation")) {
+	
+	function bootstrapNavigation( $container, $navigation, $level = 0 ) {
+		$html = '<ul class="' . ($level == 0 ? $navigation->menu()->getUlClass() : 'dropdown-menu') . ' level_' . $level . '">' . PHP_EOL;
+		foreach ($container as $page):
+			if ($navigation->accept($page)):
+				$classnames = array();
+				if (!empty($page->pages)) { $classnames[] = 'dropdown' . ($level == 0) ? '' : '-submenu'; }
+				if ($page->isActive(true)) { $classnames[] = $navigation->menu()->getLiActiveClass(); }
+				
+				$html .= '<li class="'.(implode(" ", $classnames)).'">' . PHP_EOL;
+				if (!empty($page->pages)) {
+					$html .= '<a class="dropdown-toggle" data-toggle="dropdown' . ($level == 0 ? '' : '-submenu') . '" href="' . $page->getHref() . '">' . PHP_EOL .
+						($page->get('icon') ? '<span class="icon-' . $page->get('icon') . '"></span> ' : '' ) . PHP_EOL .
+						$page->getLabel() .
+					'</a>' . PHP_EOL;
+				} else {
+					$html .= '<a href="' . $page->getHref() . '">' . PHP_EOL .
+						($page->get('icon') ? '<span class="icon-' . $page->get('icon') . '"></span> ' : '' ) . PHP_EOL .
+						$page->getLabel().
+					'</a>' . PHP_EOL;
+				}
+				if (!empty($page->pages)):
+					// ... ;
+					$html .= bootstrapNavigation( $page->pages, $navigation, $level+1 );
+				endif;
+				
+				$html .= '</li>' . PHP_EOL;
+			endif;
+		endforeach;
+		$html .= '</ul>' . PHP_EOL;
+		
+		return $html;
+	}
+	
+} // if (!function_exists("bootstrapNavigation"))
+
+echo bootstrapNavigation( $this->container, $this->navigation() );
