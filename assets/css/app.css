@@ -66,33 +66,11 @@
 	}
 	/* @end */
 	
-	/* @ group breadcrumbs * /
-	DIV.breadcrumb,
-	DIV.navbar-subnav {
-		clear				: both;
-		border				: 1px solid #CCC;
-		border-radius		: 6px 6px 6px 6px;
-		padding				: 7px 10px 5px 10px;
-		margin-top			: 0px;
-		margin-bottom		: 10px;
-	    font-size			: 12px;
-	}
-	
-	.breadcrumb, .breadcrumb A {
-	    font-family			: arial,helvetica,sans-serif;
-	    font-size			: 12px;
-	    font-weight			: 700;
-	    line-height			: 19.5px;
-	}
-	
-	.breadcrumb A, .breadcrumb SPAN {
-	    font-weight			: 400;
-	    margin				: 0;
-	    padding				: 0;
-	    border				: 0;
-	    outline				: 0;
-	    font-size			: 100%;
-	    background			: rgba(0, 0, 0, 0);
+	/* @group breadcrumbs */
+	.breadcrumb>li.header+li:before {
+	    padding: 0 5px;
+	    color: #ccc;
+	    content: "";
 	}
 	/* @end */
 	

@@ -1,24 +1,26 @@
-<div class="breadcrumb">
-	<span><?php echo $this->translate('Du bist hier:'); ?></span>
-	<span class="breadcrumb">
+<div class="nav-breadcrumb">
+	<ol class="breadcrumb">
+		<li class="label"><?php echo $this->translate('Du bist hier:'); ?></li>
 	    <?php
 	    // iterate through the pages
 	    foreach ($this->pages as $key => $page):
 	        ?>
-	        <span>
 	            <?php
 	            // if this isn't the last page, add a link and the separator
 	            if ($key < count($this->pages) - 1):
 	                ?>
+	        <li>
 	                <a href="<?php echo $page->getHref(); ?>"><?php echo $page->getLabel(); ?></a>
-	                <span class="separator">/</span>
+	                <span class="separator hide">/</span>
+	        </li>
 	            <?php
 	            // otherwise, just output the name
 	            else:
 	            ?>
+	        <li class="active">
 	                <?php echo $page->getLabel(); ?>
+	        </li>
 	            <?php endif; ?>
-	        </span>
 	    <?php endforeach; ?>
-	</span>
+	</ol>
 </div>
