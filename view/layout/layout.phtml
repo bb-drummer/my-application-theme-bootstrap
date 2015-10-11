@@ -16,8 +16,6 @@
         			'href' => $this->basePath($themePath . 'img/favicon.ico')
      			))
 				->prependStylesheet($this->basePath($themePath . 'css/app.css'))
-				->prependStylesheet($this->basePath($themePath . 'css/jquery.gridster.min.css'))
-                ->prependStylesheet($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.css'))
 				->prependStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap-theme.min.css'))
 				->prependStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap.min.css'));
 
@@ -25,7 +23,7 @@
 		?>
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,15 +34,20 @@
                     <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" alt="MyApplication" />&nbsp;<?php echo $this->translate('MyApplication') ?></a>
                 </div>
 				<div class="collapse navbar-collapse">
-					<nav>
-					    <?php
-					    	echo $this->navigation('navigation')
-					              ->menu()
-					              //->setMinDepth(0)
-					              //->setMaxDepth(0)
-					              ->setUlClass('nav navbar-nav');
-					    ?>
-				    </nav>
+					<?php
+						$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
+						$this->navigation('navigation')
+							  ->menu()
+							  //->setMinDepth(0)
+							  //->setMaxDepth(0)
+							  ->setPartial($topNavPartial)
+							  ->setUlClass('nav navbar-nav')
+						;
+						echo $this->navigation('navigation')
+							->menu()
+							//->render()
+						;
+					?>
 				</div> 
             </div>
         </nav>
@@ -80,13 +83,10 @@
         <?php 
         	$this->headScript()
 				->prependFile($this->basePath($themePath . 'js/app.js'))
-				->prependFile($this->basePath($themePath . 'js/doubletaptogo.min.js'))
 				->prependFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
-                ->prependFile($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.pack.js'))
-				->prependFile($this->basePath($themePath . 'js/jquery.gridster.min.js'))
 				->prependFile($this->basePath($themePath . 'js/jquery/jquery.min.js'))
 				->prependFile($this->basePath($themePath . 'js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
-				->prependFile($this->basePath($themePath . 'js/html5shiv.js'),   'text/javascript', array('conditional' => 'lt IE 9',));
+        	;
         	
         	echo $this->headScript(); 
         ?>
