@@ -6,7 +6,7 @@ foreach ($this->container as $page):
 		if (!empty($page->pages)) { $classnames[] = 'dropdown'; }
 		if ($page->isActive(true)) { $classnames[] = $this->navigation()->menu()->getLiActiveClass(); }
 		
-		$html .= '<li class="'.(implode(" ", $classnames)).' '.$page->getLevel().'">' . PHP_EOL;
+		$html .= '<li class="'.(implode(" ", $classnames)).' '.$page->get('level').'">' . PHP_EOL;
 		if (!empty($page->pages)) {
 			$html .= '<a class="dropdown-toggle" data-toggle="dropdown" href="'.$page->getHref().'">' . PHP_EOL .
 				($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
@@ -29,7 +29,7 @@ foreach ($this->container as $page):
 					if (!empty($subpage->pages)) { $subclassnames[] = 'dropdown-submenu'; }
 					if ($subpage->isActive(true)) { $subclassnames[] = $this->navigation()->menu()->getLiActiveClass(); }
 					
-					$html .= '<li class="'.(implode(" ", $subclassnames)).' '.$subpage->getLevel().'">' . PHP_EOL;
+					$html .= '<li class="'.(implode(" ", $subclassnames)).' '.$subpage->get('level').'">' . PHP_EOL;
 					if (!empty($subpage->pages)) {
 						$html .= '<a class="dropdown-toggle" data-toggle="dropdown-submenu" href="'.$subpage->getHref().'">' . PHP_EOL .
 						($subpage->get('icon') ? '<span class="icon-'.$subpage->get('icon').'"></span> ' : '' ) . PHP_EOL .
