@@ -35,7 +35,7 @@
                 </div>
 				<div class="collapse navbar-collapse">
 					<?php
-						$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
+						/*$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
 						$this->navigation('navigation')
 							  ->menu()
 							  //->setMinDepth(0)
@@ -46,7 +46,14 @@
 						echo $this->navigation('navigation')
 							->menu()
 							//->render()
+						;*/
+						$oTwitterBootstrap = $this->bootstrap();
+						$oNavBar = $oTwitterBootstrap->Navbar('navigation')
+							->setUlClass('nav navbar-nav')
+							->setMinDepth(0)
+							->setMaxDepth(2)
 						;
+						echo $oNavBar->render();
 					?>
 				</div> 
             </div>

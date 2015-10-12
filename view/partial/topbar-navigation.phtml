@@ -1,83 +1,26 @@
 <?php 
-$html = '<ul class="'.$this->navigation()->menu()->getUlClass().'">' . PHP_EOL;
-foreach ($this->container as $page):
-	if ($this->navigation()->accept($page)):
-		$classnames = array();
-		if (!empty($page->pages)) { $classnames[] = 'dropdown'; }
-		if ($page->isActive(true)) { $classnames[] = $this->navigation()->menu()->getLiActiveClass(); }
-		
-		$html .= '<li class="'.(implode(" ", $classnames)).'">' . PHP_EOL;
-		if (!empty($page->pages)) {
-			$html .= '<a class="dropdown-toggle" data-toggle="dropdown" href="'.$page->getHref().'">' . PHP_EOL .
-				($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
-				$page->getLabel().
-			'</a>' . PHP_EOL;
-		} else {
-			$html .= '<a href="'.$page->getHref().'">' . PHP_EOL .
-				($page->get('icon') ? '<span class="icon-'.$page->get('icon').'"></span> ' : '' ) . PHP_EOL .
-				$page->getLabel().
-			'</a>' . PHP_EOL;
-		}
-		if (!empty($page->pages)):
-			$html .= '<ul class="dropdown-menu">' . PHP_EOL;
-			foreach ($page->pages as $subpage):
-				if ($this->navigation()->accept($subpage)):
-					/*$html .= '<li class="'.($subpage->isActive() ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">' . PHP_EOL;
-					$html .= '<a href="'.$subpage->getHref().'">'.$subpage->getLabel().'</a>' . PHP_EOL;
-					$html .= '</li>' . PHP_EOL;*/
-					$subclassnames = array();
-					if (!empty($subpage->pages)) { $subclassnames[] = 'dropdown-submenu'; }
-					if ($subpage->isActive(true)) { $subclassnames[] = $this->navigation()->menu()->getLiActiveClass(); }
-					
-					$html .= '<li class="'.(implode(" ", $subclassnames)).'">' . PHP_EOL;
-					if (!empty($subpage->pages)) {
-						$html .= '<a class="dropdown-toggle" data-toggle="dropdown-submenu" href="'.$subpage->getHref().'">' . PHP_EOL .
-						($subpage->get('icon') ? '<span class="icon-'.$subpage->get('icon').'"></span> ' : '' ) . PHP_EOL .
-						$subpage->getLabel().
-						'</a>' . PHP_EOL;
-					} else {
-						$html .= '<a href="'.$subpage->getHref().'">' . PHP_EOL .
-						($subpage->get('icon') ? '<span class="icon-'.$subpage->get('icon').'"></span> ' : '' ) . PHP_EOL .
-						$subpage->getLabel().
-						'</a>' . PHP_EOL;
-					}
-					if (!empty($page->pages)):
-						$html .= '<ul class="dropdown-menu">' . PHP_EOL;
-						foreach ($subpage->pages as $subsubpage):
-							if ($this->navigation()->accept($subsubpage)):
-								$html .= '<li class="'.($subsubpage->isActive(true) ? ''.$this->navigation()->menu()->getLiActiveClass().'' : '').'">' . PHP_EOL;
-								$html .= '<a href="'.$subsubpage->getHref().'">'.$subsubpage->getLabel().'</a>' . PHP_EOL;
-								$html .= '</li>' . PHP_EOL;
-							endif;
-						endforeach;
-						$html .= '</ul>' . PHP_EOL;
-					endif;
-					
-					$html .= '</li>' . PHP_EOL;
-				
-				endif;
-			endforeach;
-			$html .= '</ul>' . PHP_EOL;
-		endif;
-		
-		$html .= '</li>' . PHP_EOL;
-	endif;
-endforeach;
-$html .= '</ul>' . PHP_EOL;
-
-
 if (!function_exists("bootstrapNavigation")) {
-	
-	function bootstrapNavigation( $container, $navigation, $level = 0 ) {
+	/**
+	 * recursively create Bootstrap compatible multi-level UL navigation
+	 * 
+	 * @param \Zend\Navigation\Page $container
+	 * @param \Zend\Navigation\Navigation $navigation
+	 * @param number $level
+	 * @param number $maxlevel
+	 * 
+	 * @return string
+	 */
+	function bootstrapNavigation( $container, $navigation, $level = 0, $maxlevel = null ) {
+		$isBelowMaxLevel = ($maxlevel > $level) || ($maxlevel === null) || ($maxlevel === false);
 		$html = '<ul class="' . ($level == 0 ? $navigation->menu()->getUlClass() : 'dropdown-menu') . ' level_' . $level . '">' . PHP_EOL;
 		foreach ($container as $page):
 			if ($navigation->accept($page)):
 				$classnames = array();
-				if (!empty($page->pages)) { $classnames[] = 'dropdown' . ($level == 0) ? '' : '-submenu'; }
+				if (!empty($page->pages) && $isBelowMaxLevel) { $classnames[] = 'dropdown' . (($level == 0) ? '' : '-submenu'); }
 				if ($page->isActive(true)) { $classnames[] = $navigation->menu()->getLiActiveClass(); }
 				
 				$html .= '<li class="'.(implode(" ", $classnames)).'">' . PHP_EOL;
-				if (!empty($page->pages)) {
+				if (!empty($page->pages) && $isBelowMaxLevel) {
 					$html .= '<a class="dropdown-toggle" data-toggle="dropdown' . ($level == 0 ? '' : '-submenu') . '" href="' . $page->getHref() . '">' . PHP_EOL .
 						($page->get('icon') ? '<span class="icon-' . $page->get('icon') . '"></span> ' : '' ) . PHP_EOL .
 						$page->getLabel() .
@@ -90,7 +33,9 @@ if (!function_exists("bootstrapNavigation")) {
 				}
 				if (!empty($page->pages)):
 					// ... ;
-					$html .= bootstrapNavigation( $page->pages, $navigation, $level+1 );
+					if ( $isBelowMaxLevel ) {
+						$html .= bootstrapNavigation( $page->pages, $navigation, $level+1, $maxlevel );
+					}
 				endif;
 				
 				$html .= '</li>' . PHP_EOL;
@@ -103,4 +48,4 @@ if (!function_exists("bootstrapNavigation")) {
 	
 } // if (!function_exists("bootstrapNavigation"))
 
-echo bootstrapNavigation( $this->container, $this->navigation() );
+echo bootstrapNavigation( $this->container, $this->navigation(), 0, 2 );
