@@ -59,17 +59,20 @@
             </div>
         </nav>
         <div class="container-fluid">
+			<?php 
+				$oBreadcrumbs = $oTwitterBootstrap->Breadcrumbs('navigation')
+					->setHeader( $this->translate('Du bist hier :') )
+					->setMinDepth(0)
+				;
+				echo $oBreadcrumbs->render(); 
+			?>
             <?php
-		    	echo $this->navigation('navigation')
-		              ->breadcrumbs()
-		              ->setMinDepth(0)
-		              ->setPartial('partial/breadcrumb.phtml');
-		    
 				echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
 				echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
 				echo $this->flashMessenger()->render('success', array('success alert flashmessages'));
 				echo $this->flashMessenger()->render('info', array('info alert flashmessages'));
-			
+			?>
+			<?php
 				echo $this->content;
 			?>
             <hr>
