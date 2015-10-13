@@ -2,6 +2,9 @@
 
 /* @group MyApplication styles */
 
+BODY {
+	backround-color		: #f7f7f7;
+}
 .element-invisible, .hide, .hidden {
 	display				: none;
 }
@@ -44,7 +47,7 @@
 	    border-color: transparent;
 	    border-style: solid;
 	    border-width: 5px 0 5px 5px;
-	    border-left-color: #ccc;
+	    border-left-color: #ddd;
 	    margin-top: 5px;
 	    margin-right: -10px;
 	}
@@ -68,7 +71,7 @@
 	
 	/* @group breadcrumbs */
 	.breadcrumb {
-		border				: 1px solid #CCC;
+		border				: 1px solid #ddd;
 		border-radius		: 6px 6px 6px 6px;
 		padding				: 7px 10px 5px 10px;
 		margin-top			: 0px;
@@ -85,8 +88,8 @@
 	/* @end */
 	
 	/* @group toolbar */
-	.toolbar {
-		border				: 1px solid #CCC;
+	.breadcrumb {
+		border				: 1px solid #ddd;
 		border-radius		: 6px 6px 6px 6px;
 		padding				: 7px 10px 5px 10px;
 		margin-top			: 0px;
@@ -98,7 +101,7 @@
 	
 	/* @group panel sublevel navigation */
 	.navbar-subnav {
-		border				: 1px solid #CCC;
+		border				: 1px solid #ddd;
 		border-radius		: 6px 6px 6px 6px;
 		padding				: 7px 10px 5px 10px;
 		margin-top			: 0px;
@@ -164,7 +167,7 @@
 	/* @group flashmessages */
 	.flashmessages {
 	    clear				: both;
-	    border				: 1px solid #CCC;
+	    border				: 1px solid #ddd;
 	    border-radius		: 6px 6px 6px 6px;
 	    padding				: 7px 10px 5px 30px;
 	    margin-top			: 0px;
@@ -241,8 +244,11 @@
 	}
 	/* @end */
 	
-	
+		
 	/* @group bootstrap overrides */
+	.navbar-inverse {
+		border-radius		: 0px;
+	}
 	.navbar .navbar-brand {
 		margin-left			: -15px;
 		font-size			: 20px;
@@ -273,6 +279,16 @@
 /* @end */
 
 
+/* @group bootstrap components panel */
+
+	/* @group panel */
+	.panel-body + .panel-body {
+		border-top			: 1px solid #ddd;
+	}
+	/* @end */
+
+/* @end */
+	
 
 /* @group Admin Module styles */
 
