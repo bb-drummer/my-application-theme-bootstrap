@@ -3,7 +3,7 @@
 /* @group MyApplication styles */
 
 BODY {
-	backround-color		: #f7f7f7;
+	background-color	: #f7f7f7;
 }
 .element-invisible, .hide, .hidden {
 	display				: none;
@@ -15,41 +15,41 @@ BODY {
 
 	/* @group multi-level navigation add on */
 	.navbar-brand IMG {
-		height				: 24px;
-		vertical-align		: top;
-		float				: left;
+		height					: 24px;
+		vertical-align			: top;
+		float					: left;
 	}
 		
 	.dropdown-submenu {
-	    position: relative;
+	    position				: relative;
 	}
 	
 	.dropdown-submenu>.dropdown-menu {
-	    top: 0;
-	    left: 100%;
-	    margin-top: -6px;
-	    margin-left: -1px;
-	    -webkit-border-radius: 0 6px 6px 6px;
-	    -moz-border-radius: 0 6px 6px;
-	    border-radius: 0 6px 6px 6px;
+	    top						: 0;
+	    left					: 100%;
+	    margin-top				: -6px;
+	    margin-left				: -1px;
+	    -webkit-border-radius	: 0 6px 6px 6px;
+	    -moz-border-radius		: 0 6px 6px;
+	    border-radius			: 0 6px 6px 6px;
 	}
 	
 	.dropdown-submenu:hover>.dropdown-menu {
-	    display: block;
+	    display			: block;
 	}
 	
 	.dropdown-submenu>a:after {
-	    display: block;
-	    content: " ";
-	    float: right;
-	    width: 0;
-	    height: 0;
-	    border-color: transparent;
-	    border-style: solid;
-	    border-width: 5px 0 5px 5px;
-	    border-left-color: #ddd;
-	    margin-top: 5px;
-	    margin-right: -10px;
+	    display				: block;
+	    content				: " ";
+	    float				: right;
+	    width				: 0;
+	    height				: 0;
+	    border-color		: transparent;
+	    border-style		: solid;
+	    border-width		: 5px 0 5px 5px;
+	    border-left-color	: #ddd;
+	    margin-top			: 5px;
+	    margin-right		: -10px;
 	}
 	
 	.dropdown-submenu:hover>a:after {
@@ -61,11 +61,11 @@ BODY {
 	}
 	
 	.dropdown-submenu.pull-left>.dropdown-menu {
-	    left: -100%;
-	    margin-left: 10px;
-	    -webkit-border-radius: 6px 0 6px 6px;
-	    -moz-border-radius: 6px 0 6px 6px;
-	    border-radius: 6px 0 6px 6px;
+	    left					: -100%;
+	    margin-left				: 10px;
+	    -webkit-border-radius	: 6px 0 6px 6px;
+	    -moz-border-radius		: 6px 0 6px 6px;
+	    border-radius			: 6px 0 6px 6px;
 	}
 	/* @end */
 	
@@ -80,10 +80,10 @@ BODY {
 		list-style			: none;
 	}
 	.breadcrumb>li.header+li:before {
-	    padding: 0 5px;
-	    color: #ccc;
-	    content: " ";
-	    display	:  none;
+	    padding		: 0 5px;
+	    color		: #ccc;
+	    content		: " ";
+	    display		:  none;
 	}
 	/* @end */
 	
