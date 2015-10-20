@@ -35,23 +35,11 @@
                 </div>
 				<div class="collapse navbar-collapse">
 					<?php
-						/*$topNavPartial = array('partial/topbar-navigation.phtml', 'default');
-						$this->navigation('navigation')
-							  ->menu()
-							  //->setMinDepth(0)
-							  //->setMaxDepth(0)
-							  ->setPartial($topNavPartial)
-							  ->setUlClass('nav navbar-nav')
-						;
-						echo $this->navigation('navigation')
-							->menu()
-							//->render()
-						;*/
 						$oTwitterBootstrap = $this->bootstrap();
 						$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 							->setUlClass('nav navbar-nav')
 							->setMinDepth(0)
-							->setMaxDepth(2)
+							->setMaxDepth(3)
 							->setIconPrefixClass('glyphicon glyphicon-')
 						;
 						echo $oNavBar->render();
