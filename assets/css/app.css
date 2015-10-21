@@ -168,22 +168,22 @@ BODY {
 	    min-height			: 28px;
 	}
 	.flashmessages.info {
-	    background-image	: url(/img/icons/info.gif);
+	    background-image	: url(../img/icons/info.gif);
 	}
 	.flashmessages.warning {
 		color				: black;
 		background-color	: yellow;
-	    background-image	: url(/img/icons/icon_warning.gif);
+	    background-image	: url(../img/icons/icon_warning.gif);
 	}
 	.flashmessages.error {
 		color				: black;
 		background-color	: red;
-	    background-image	: url(/img/icons/icon_fatalerror.gif);
+	    background-image	: url(../img/icons/icon_fatalerror.gif);
 	}
 	.flashmessages.success {
 		color				: white;
 		background-color	: #57a900;
-	    background-image	: url(/img/icons/but_ok.gif);
+	    background-image	: url(../img/icons/but_ok.gif);
 	}
 	.flashmessages button.close {
 	    font-size			: 14px;
