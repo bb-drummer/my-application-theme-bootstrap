@@ -15,7 +15,8 @@ jQuery(document).ready(function () {
 			fitToView	: false,
 			width		: '99%',
 			height		: '99%',
-			autoSize	: false,
+			autoSize	: true,
+			autoCenter	: true,
 			closeClick	: false,
 			openEffect	: 'none',
 			closeEffect	: 'none'
