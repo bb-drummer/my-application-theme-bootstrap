@@ -7,7 +7,7 @@ jQuery(document).ready(function () {
 	
 	// ... your actions here ...
 
-	jQuery('A.fancybox.ajax').each(function(){
+	jQuery('A#xhrtest').each(function(){
 		//console.debug(this);
 		jQuery(this).fancybox({
 			maxWidth	: 800,
