@@ -261,6 +261,14 @@ BODY {
 	/* @end */
 	
 	
+	/* @group flag icons */
+	.flag-icon-en {
+		background-image	: url(flag-icon-css/flags/us.svg);
+	}
+	
+	/* @end */
+	
+	
 	/* @group responsiveness / media overrides */
 		@media only screen and ( max-width: 40em ) /* 640 */
 		{
