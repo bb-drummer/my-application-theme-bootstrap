@@ -47,6 +47,7 @@
 				<div class="collapse navbar-collapse">
 					<?php
 						$oTwitterBootstrap = $this->bootstrap();
+						$oBootstrapComponents = $oTwitterBootstrap->Components();
 						$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 							->setUlClass('nav navbar-nav')
 							->setMinDepth(0)
@@ -63,9 +64,7 @@
 								<?php echo Locale::getDisplayLanguage(null); ?><?php //echo Locale::getDefault(); ?><?php //echo Locale::getPrimaryLanguage(null); ?>
 								<span class="caret"></span>
 							</a>
-							<?php echo $this
-								->bootstrap()
-								->components()
+							<?php echo $oBootstrapComponents
 								->localeMenu()
 								->setUlClass('dropdown-menu')
 								->setIconPrefixClass('flag-icon flag-icon-')
