@@ -85,6 +85,11 @@ BODY {
 	    content		: " ";
 	    display		:  none;
 	}
+	.breadcrumb>li+li:before {
+	    padding: 0 0px;
+	    color: #ccc;
+	    content: "/\00a0";
+	}
 	/* @end */
 	
 	/* @group toolbar */
