@@ -64,11 +64,15 @@
 								<?php echo Locale::getDisplayLanguage(null); ?><?php //echo Locale::getDefault(); ?><?php //echo Locale::getPrimaryLanguage(null); ?>
 								<span class="caret"></span>
 							</a>
-							<?php echo $oBootstrapComponents
-								->localeMenu()
+							<?php echo $this
+								->localemenu()
+								->setUlClass('dropdown-menu')
+								//->setIconPrefixClass('flag-icon flag-icon-')
+							; /* echo $oBootstrapComponents
+								->localemenu()
 								->setUlClass('dropdown-menu')
 								->setIconPrefixClass('flag-icon flag-icon-')
-							; ?>
+							; */ ?>
 						</li>
 					</ul>
 				</div> 
