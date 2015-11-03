@@ -68,14 +68,19 @@
 								->localemenu()
 								->setUlClass('dropdown-menu')
 								//->setIconPrefixClass('flag-icon flag-icon-')
-							; 
+							;
 							echo $oBootstrapComponents
 								->languagemenu()
-								//->setUlClass('dropdown-menu')
-								//->setIconPrefixClass('flag-icon flag-icon-')
+								->setUlClass('nav navbar-nav navbar-right')
+								->setIconPrefixClass('flag-icon flag-icon-')
 							; ?>
 						</li>
 					</ul>
+					<?php echo $oBootstrapComponents
+						->languagemenu()
+						->setUlClass('nav navbar-nav navbar-right')
+						->setIconPrefixClass('flag-icon flag-icon-')
+					; ?>
 				</div> 
             </div>
         </nav>
