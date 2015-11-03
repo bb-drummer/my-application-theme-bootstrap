@@ -22,7 +22,9 @@
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap-theme.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/fontawesome/css/font-awesome.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.css'))
-				->appendStylesheet('//cdn.datatables.net/1.10.9/css/jquery.dataTables.css')
+				//->appendStylesheet($this->basePath($themePath . 'js/datatables/css/jquery.dataTables.min.css'))
+				->appendStylesheet($this->basePath($themePath . 'js/datatables/css/dataTables.bootstrap.min.css'))
+				//->appendStylesheet('//cdn.datatables.net/1.10.9/css/jquery.dataTables.css')
 				->appendStylesheet($this->basePath($themePath . 'css/flag-icon-css/flag-icon.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/app.css'))
         	;
@@ -104,7 +106,9 @@
 				->appendFile($this->basePath($themePath . 'js/jquery/jquery.min.js'))
 				->appendFile($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.pack.js'))
 				->appendFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
-				->appendFile('//cdn.datatables.net/1.10.9/js/jquery.dataTables.js')
+				//->appendFile($this->basePath($themePath . 'js/datatables/js/jquery.dataTables.min.js'))
+				->appendFile($this->basePath($themePath . 'js/datatables/js/dataTables.bootstrap.min.js'))
+				//->appendFile('//cdn.datatables.net/1.10.9/js/jquery.dataTables.js')
 				->appendFile($this->basePath($themePath . 'js/app.js'))
 			;
 			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
