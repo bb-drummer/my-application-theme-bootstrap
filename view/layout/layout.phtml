@@ -16,7 +16,8 @@
         	$this->headLink(array(
         			'rel' => 'shortcut icon', 
         			'type' => 'image/vnd.microsoft.icon', 
-        			'href' => $this->basePath($themePath . $oTwitterBootstrap->AppFavicon())
+        			//'href' => $this->basePath($themePath . $oTwitterBootstrap->AppFavicon())
+        			'href' => '/'.$oTwitterBootstrap->AppFavicon()
      			))
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap-theme.min.css'))
