@@ -266,6 +266,14 @@ BODY {
 	/* @end */
 	
 	
+	/* @group font-awesome icons overrides */
+	.fa {
+	    min-width: 16px;
+	    text-align: center;
+	}
+	
+	/* @end */
+	
 	/* @group flag icons */
 	.flag-icon-en {
 		background-image	: url(flag-icon-css/flags/us.svg);
