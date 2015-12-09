@@ -317,13 +317,18 @@ BODY {
 		border-bottom		: 1px;
 	}
 	
-	.panel.panel-user-profile {
+	.panel-user-profile {
 	    padding-top			: 0px;
 	    padding-bottom		: 0px;
 	    width				: 49%;
 	}
 	
-	.panel.panel-default:first-child {
+	@media (min-width: @screen-md-min) {
+	
+		.panel-user-profile .panel.panel-default.col-md-6 {
+	    	width				: 49%;
+		}
+	
 	}
 		
 		
