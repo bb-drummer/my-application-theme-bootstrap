@@ -105,6 +105,7 @@
         <?php 
         	$this->inlineScript()
 				->appendFile($this->basePath($themePath . 'js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+				->appendFile($this->basePath($themePath . 'js/modernizr/modernizr.js'))
 				->appendFile($this->basePath($themePath . 'js/jquery/jquery.min.js'))
 				->appendFile($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.pack.js'))
 				->appendFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
