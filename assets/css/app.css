@@ -312,6 +312,15 @@ BODY {
 	    padding-right		: 0px;
 	    border-left			: 0px none;
 	    border-right		: 0px none;
+		border-bottom		: 0px;
+	}
+	
+	.panel-user-profile {
+	    padding-top			: 0px;
+	    padding-bottom		: 0px;
+	}
+	
+	.panel.panel-default:last-child {
 	}
 	/* @end */
 
