@@ -304,6 +304,17 @@ BODY {
 
 /* @group Admin Module styles */
 
+	/* @group user profile */
+	.panel.panel-default {
+	    border-radius		: 0px;
+	    margin				: 0px !important;
+	    padding-left		: 0px;
+	    padding-right		: 0px;
+	    border-left			: 0px none;
+	    border-right		: 0px none;
+	}
+	/* @end */
+
 	/* @group user admin */
 	.table.matrix > THEAD:first-child > TR:first-child > TH,
 	.table.matrix > TBODY > TR > TD {
