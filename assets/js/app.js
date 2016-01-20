@@ -36,16 +36,18 @@ jQuery(document).ready(function ($) {
 		});
 	}); 
 	
-	jQuery('BODY').on('click', $ajaxCTASubmit, {}, function (oEvent) {
-		alert (this.action);
+	jQuery('BODY').on('submit', $ajaxCTASubmit, {}, function (oEvent) {
+		var formURL = (this.action);
+		
 		$.fancybox.showActivity();
 		
 		$.ajax({
-			type		: "POST",
+			type	: "POST",
 			cache	: false,
-			url		: "/data/login.php",
-			data		: $(this).serializeArray(),
-			success: function(data) {
+			url		: formURL,
+			data	: $(this).serializeArray(),
+			success	: function (data) {
+				console.log(data);
 				$.fancybox(data);
 			}
 		});
