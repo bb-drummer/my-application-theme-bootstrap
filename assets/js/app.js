@@ -52,7 +52,7 @@ jQuery(document).ready(function ($) {
 			url		: formURL,
 			data	: $(this).serializeArray(),
 			success	: function (data) {
-				jQuery.fancybox(jQuery(data).remove("BUTTON.close"));
+				jQuery.fancybox(jQuery('<div />').html(data).remove("BUTTON.close"));
 			}
 		});
 		
