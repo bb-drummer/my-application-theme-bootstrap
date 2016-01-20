@@ -13,10 +13,12 @@ jQuery(document).ready(function ($) {
 	} );
 
 	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
-	$ajaxCTAOpen = ".btn-cta-xhr";
+	$ajaxCTAOpen = "A.btn-cta-xhr";
 	$ajaxCTAClose = ".fancybox-type-ajax .btn-cta-xhr-close";
+	$ajaxCTASubmit = ".fancybox-type-ajax .form-xhr;
 	
 	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
+	
 	jQuery($ajaxCTAOpen).each(function(){
 		// console.debug(this);
 		jQuery(this).fancybox({
@@ -33,10 +35,31 @@ jQuery(document).ready(function ($) {
 			closeEffect	: 'none'
 		});
 	}); 
+	
+	jQuery('BODY').on('click', $ajaxCTASubmit, {}, function (oEvent) {
+		alert (this.action);
+		$.fancybox.showActivity();
+		
+		$.ajax({
+			type		: "POST",
+			cache	: false,
+			url		: "/data/login.php",
+			data		: $(this).serializeArray(),
+			success: function(data) {
+				$.fancybox(data);
+			}
+		});
+		
+		oEvent.preventDefault();
+		oEvent.stopPropagation();
+		return (false);
+	});
+	
 	jQuery('BODY').on('click', $ajaxCTAClose, {}, function (oEvent) {
 		$.fancybox.close();
 		oEvent.preventDefault();
 		oEvent.stopPropagation();
 		return (false);
 	});
+	
 });
