@@ -13,10 +13,11 @@ jQuery(document).ready(function ($) {
 	} );
 
 	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
-	$ajaxAction = ".btn-cta-xhr";
+	$ajaxCTAOpen = ".btn-cta-xhr";
+	$ajaxCTAClose = ".btn-cta-xhr-close";
 	
-	jQuery($ajaxButtons).addClass('fancybox.ajax');
-	jQuery($ajaxButtons).each(function(){
+	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
+	jQuery($ajaxCTAOpen).each(function(){
 		// console.debug(this);
 		jQuery(this).fancybox({
 			minWidth	: 800,
@@ -32,4 +33,10 @@ jQuery(document).ready(function ($) {
 			closeEffect	: 'none'
 		});
 	}); 
+	jQuery($ajaxCTAClose).on('click', function (oEvent) {
+		$.fancybox.close();
+		oEvent.preventDefault();
+		oEvent.stopPropagation();
+		return (false);
+	});
 });
