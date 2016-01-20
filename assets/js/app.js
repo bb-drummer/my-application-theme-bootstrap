@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
 
 	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
 	$ajaxCTAOpen = ".btn-cta-xhr";
-	$ajaxCTAClose = ".btn-cta-xhr-close";
+	$ajaxCTAClose = ".fancybox-type-ajax .btn-cta-xhr-close";
 	
 	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
 	jQuery($ajaxCTAOpen).each(function(){
