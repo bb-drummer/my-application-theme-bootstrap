@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 	jQuery('BODY').on('submit', $ajaxCTASubmit, {}, function (oEvent) {
 		var formURL = (this.action);
 		
-		jQuery.fancybox.showActivity();
+		jQuery.fancybox.showLoading();
 		
 		jQuery.ajax({
 			type	: "POST",
