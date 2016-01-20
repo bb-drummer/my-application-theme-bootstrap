@@ -14,17 +14,17 @@ jQuery(document).ready(function ($) {
 
 	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
 	$ajaxCTAOpen = "A.btn-cta-xhr";
-	$ajaxCTAClose = ".fancybox-type-ajax .btn-cta-xhr-close, .fancybox-type-ajax .flashmessages .close";
-	$ajaxForms = ".fancybox-type-ajax .form-xhr";
+	$ajaxCTAClose = ".fancybox-wrap .btn-cta-xhr-close, .fancybox-wrap .flashmessages .close";
+	$ajaxForms = ".fancybox-wrap .form-xhr";
 	
 	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
 	
 	jQuery($ajaxCTAOpen).each(function(){
 		// console.debug(this);
 		jQuery(this).fancybox({
-			minWidth	: 800,
-			maxWidth	: 800,
-			maxHeight	: 600,
+			minWidth	: 720,
+			maxWidth	: 720,
+			maxHeight	: 572,
 			fitToView	: false,
 			width		: '99%',
 			height		: '99%',
@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
 		});
 	}); 
 	
-	var initCTA = function () {
+	//var initCTA = function () {
 		jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
 			var formURL = (this.action)
 				form = this;
@@ -60,9 +60,9 @@ jQuery(document).ready(function ($) {
 				data	: $(this).serializeArray(),
 				success	: function (data) {
 					jQuery.fancybox(data, {
-						minWidth	: 800,
-						maxWidth	: 800,
-						maxHeight	: 600,
+						minWidth	: 720,
+						maxWidth	: 720,
+						maxHeight	: 572,
 						fitToView	: false,
 						width		: '99%',
 						height		: '99%',
@@ -70,10 +70,15 @@ jQuery(document).ready(function ($) {
 						autoCenter	: true,
 						closeClick	: true,
 						openEffect	: 'none',
-						closeEffect	: 'none'
+						closeEffect	: 'none',
+						helpers 	: {
+							overlay		: {
+								closeClick : false
+							}
+						}
 					});
 					jQuery('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
-					initCTA();
+					//initCTA();
 				}
 			});
 			
@@ -88,6 +93,6 @@ jQuery(document).ready(function ($) {
 			oEvent.stopPropagation();
 			return (false);
 		});
-	};
-	initCTA();
+	//};
+	//initCTA();
 });
