@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
 	$ajaxCTAOpen = "A.btn-cta-xhr";
 	$ajaxCTAClose = ".fancybox-type-ajax .btn-cta-xhr-close";
-	$ajaxCTASubmit = ".fancybox-type-ajax .form-xhr";
+	$ajaxForms = ".fancybox-type-ajax .form-xhr";
 	
 	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
 	
@@ -36,18 +36,21 @@ jQuery(document).ready(function ($) {
 		});
 	}); 
 	
-	jQuery('BODY').on('submit', $ajaxCTASubmit, {}, function (oEvent) {
+	jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
 		var formURL = (this.action);
 		
 		jQuery.fancybox.showLoading();
 		
 		jQuery.ajax({
+			headers : {
+				'Accept' : 'text/html, */*; q=0.01',
+				'X-Fancybox' : 'true'
+			}
 			type	: "POST",
 			cache	: false,
 			url		: formURL,
 			data	: $(this).serializeArray(),
 			success	: function (data) {
-				console.log(data);
 				jQuery.fancybox(data);
 			}
 		});
