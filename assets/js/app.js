@@ -42,49 +42,51 @@ jQuery(document).ready(function ($) {
 		});
 	}); 
 	
-	jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
-		var formURL = (this.action)
-			form = this;
-		
-		jQuery.fancybox.showLoading();
-		
-		jQuery.ajax({
-			headers : {
-				'Accept' : 'text/html, */*; q=0.01',
-				'X-Fancybox' : 'true'
-			},
-			type	: "POST",
-			cache	: false,
-			url		: formURL,
-			data	: $(this).serializeArray(),
-			success	: function (data) {
-				jQuery.fancybox(data, {
-					minWidth	: 800,
-					maxWidth	: 800,
-					maxHeight	: 600,
-					fitToView	: false,
-					width		: '99%',
-					height		: '99%',
-					autoSize	: true,
-					autoCenter	: true,
-					closeClick	: true,
-					openEffect	: 'none',
-					closeEffect	: 'none'
-				});
-				jQuery('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
-			}
+	var initCTA = function () {
+		jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
+			var formURL = (this.action)
+				form = this;
+			
+			jQuery.fancybox.showLoading();
+			
+			jQuery.ajax({
+				headers : {
+					'Accept' : 'text/html, */*; q=0.01',
+					'X-Fancybox' : 'true'
+				},
+				type	: "POST",
+				cache	: false,
+				url		: formURL,
+				data	: $(this).serializeArray(),
+				success	: function (data) {
+					jQuery.fancybox(data, {
+						minWidth	: 800,
+						maxWidth	: 800,
+						maxHeight	: 600,
+						fitToView	: false,
+						width		: '99%',
+						height		: '99%',
+						autoSize	: true,
+						autoCenter	: true,
+						closeClick	: true,
+						openEffect	: 'none',
+						closeEffect	: 'none'
+					});
+					jQuery('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
+					initCTA();
+				}
+			});
+			
+			oEvent.preventDefault();
+			oEvent.stopPropagation();
+			return (false);
 		});
 		
-		oEvent.preventDefault();
-		oEvent.stopPropagation();
-		return (false);
-	});
-	
-	jQuery('BODY').on('click', $ajaxCTAClose, {}, function (oEvent) {
-		jQuery.fancybox.close();
-		oEvent.preventDefault();
-		oEvent.stopPropagation();
-		return (false);
-	});
-	
+		jQuery('BODY').on('click', $ajaxCTAClose, {}, function (oEvent) {
+			jQuery.fancybox.close();
+			oEvent.preventDefault();
+			oEvent.stopPropagation();
+			return (false);
+		});
+	}
 });
