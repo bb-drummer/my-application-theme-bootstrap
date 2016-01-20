@@ -88,5 +88,6 @@ jQuery(document).ready(function ($) {
 			oEvent.stopPropagation();
 			return (false);
 		});
-	}
+	};
+	initCTA();
 });
