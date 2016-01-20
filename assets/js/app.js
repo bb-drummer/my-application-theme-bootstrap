@@ -39,16 +39,16 @@ jQuery(document).ready(function ($) {
 	jQuery('BODY').on('submit', $ajaxCTASubmit, {}, function (oEvent) {
 		var formURL = (this.action);
 		
-		$.fancybox.showActivity();
+		jQuery.fancybox.showActivity();
 		
-		$.ajax({
+		jQuery.ajax({
 			type	: "POST",
 			cache	: false,
 			url		: formURL,
 			data	: $(this).serializeArray(),
 			success	: function (data) {
 				console.log(data);
-				$.fancybox(data);
+				jQuery.fancybox(data);
 			}
 		});
 		
@@ -58,7 +58,7 @@ jQuery(document).ready(function ($) {
 	});
 	
 	jQuery('BODY').on('click', $ajaxCTAClose, {}, function (oEvent) {
-		$.fancybox.close();
+		jQuery.fancybox.close();
 		oEvent.preventDefault();
 		oEvent.stopPropagation();
 		return (false);
