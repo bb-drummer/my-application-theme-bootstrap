@@ -58,7 +58,10 @@ jQuery(document).ready(function ($) {
 			url		: formURL,
 			data	: $(this).serializeArray(),
 			success	: function (data) {
-				jQuery.fancybox(data);
+				jQuery.fancybox(data, {
+					closeClick : true
+				});
+				jQuery('.fancybox-skin').removeClass('fancybox-skin');
 			}
 		});
 		
