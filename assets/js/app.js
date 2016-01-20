@@ -71,7 +71,7 @@ jQuery(document).ready(function ($) {
 					openEffect	: 'none',
 					closeEffect	: 'none'
 				});
-				jQuery('.flashmessages').first().parent('.fancybox-skin').removeClass('fancybox-skin');
+				jQuery('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
 			}
 		});
 		
