@@ -33,8 +33,11 @@ jQuery(document).ready(function ($) {
 			closeClick	: false,
 			openEffect	: 'none',
 			closeEffect	: 'none',
-			overlay		: {
-				closeClick : false
+			modal		: true,
+			helpers 	: {
+				overlay		: {
+					closeClick : false
+				}
 			}
 		});
 	}); 
