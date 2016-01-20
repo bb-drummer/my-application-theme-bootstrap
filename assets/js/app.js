@@ -59,9 +59,19 @@ jQuery(document).ready(function ($) {
 			data	: $(this).serializeArray(),
 			success	: function (data) {
 				jQuery.fancybox(data, {
-					closeClick : true
+					minWidth	: 800,
+					maxWidth	: 800,
+					maxHeight	: 600,
+					fitToView	: false,
+					width		: '99%',
+					height		: '99%',
+					autoSize	: true,
+					autoCenter	: true,
+					closeClick	: true,
+					openEffect	: 'none',
+					closeEffect	: 'none'
 				});
-				jQuery('.fancybox-skin').removeClass('fancybox-skin');
+				jQuery('.flashmessages').first().parent('.fancybox-skin').removeClass('fancybox-skin');
 			}
 		});
 		
