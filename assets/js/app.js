@@ -37,7 +37,8 @@ jQuery(document).ready(function ($) {
 	}); 
 	
 	jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
-		var formURL = (this.action);
+		var formURL = (this.action)
+			form = this;
 		
 		jQuery.fancybox.showLoading();
 		
@@ -51,7 +52,7 @@ jQuery(document).ready(function ($) {
 			url		: formURL,
 			data	: $(this).serializeArray(),
 			success	: function (data) {
-				jQuery.fancybox(data);
+				jQuery.fancybox(jQuery(data).remove("BUTTON.close"));
 			}
 		});
 		
