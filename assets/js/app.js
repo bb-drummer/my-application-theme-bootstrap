@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
 			closeEffect	: 'none'
 		});
 	}); 
-	jQuery($ajaxCTAClose).on('click', function (oEvent) {
+	jQuery($ajaxCTAClose).on('click', 'BODY', {}, function (oEvent) {
 		$.fancybox.close();
 		oEvent.preventDefault();
 		oEvent.stopPropagation();
