@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
 			headers : {
 				'Accept' : 'text/html, */*; q=0.01',
 				'X-Fancybox' : 'true'
-			}
+			},
 			type	: "POST",
 			cache	: false,
 			url		: formURL,
