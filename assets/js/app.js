@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 			var formURL = (this.action),
 				form = $(this),
 				formdata = form.serializeArray(),
-			    formdata.del = (jQuery(this).find('INPUT[name=del].btn').size() > 0) : 'delete' : null;
+			    formdata.del = (jQuery(this).find('INPUT[name=del].btn').size() > 0) ? 'delete' : null;
 			    
 			jQuery.fancybox.showLoading();
 			
