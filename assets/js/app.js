@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
 				formdata = form.serializeArray();
 			
 			formdata.del = (jQuery('.fancybox-wrap INPUT[name=del].btn').size() > 0) ? 'delete' : null;
-			    
+			console.log(formdata);
 			jQuery.fancybox.showLoading();
 			
 			jQuery.ajax({
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
 				type	: "POST",
 				cache	: false,
 				url		: formURL,
-				data	: $(this).serializeArray(),
+				data	: formdata,
 				success	: function (data) {
 					
 					jQuery.fancybox(data, {
