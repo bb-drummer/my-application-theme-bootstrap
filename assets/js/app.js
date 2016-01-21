@@ -49,7 +49,7 @@ jQuery(document).ready(function ($) {
 				formdata = form.serializeArray();
 			
 			formdata.push( (jQuery('.fancybox-wrap INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null );
-			console.log(formdata);
+			
 			jQuery.fancybox.showLoading();
 			
 			jQuery.ajax({
@@ -75,6 +75,7 @@ jQuery(document).ready(function ($) {
 						closeClick	: false,
 						openEffect	: 'none',
 						closeEffect	: 'none',
+						modal		: true,
 						helpers 	: {
 							overlay		: {
 								closeClick : false
