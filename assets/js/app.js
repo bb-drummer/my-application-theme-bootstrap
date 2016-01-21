@@ -12,46 +12,48 @@ jQuery(document).ready(function ($) {
 		}
 	} );
 
-	$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
-	$ajaxCTAOpen = "A.btn-cta-xhr";
-	$ajaxCTAClose = ".fancybox-wrap .btn-cta-xhr-close, .fancybox-wrap .flashmessages";
-	$ajaxForms = ".fancybox-wrap .form-xhr";
-	
-	jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
-	
-	jQuery($ajaxCTAOpen).each(function(){
-		// console.debug(this);
-		jQuery(this).fancybox({
-			minWidth	: 720,
-			maxWidth	: 720,
-			maxHeight	: 572,
-			fitToView	: false,
-			width		: '99%',
-			height		: '99%',
-			autoSize	: true,
-			autoCenter	: true,
-			closeClick	: false,
-			openEffect	: 'none',
-			closeEffect	: 'none',
-			modal		: true,
-			helpers 	: {
-				overlay		: {
-					closeClick : false
+	var initCTAXHR = function () {
+		$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']";
+		$ajaxCTAOpen = "A.btn-cta-xhr";
+		$ajaxCTAClose = ".fancybox-wrap .btn-cta-xhr-close, .fancybox-wrap .flashmessages";
+		$ajaxForms = ".fancybox-wrap .form-xhr";
+		
+		jQuery($ajaxCTAOpen).addClass('fancybox.ajax');
+		
+		jQuery($ajaxCTAOpen).each(function(){
+			// console.debug(this);
+			jQuery(this).fancybox({
+				minWidth	: 720,
+				maxWidth	: 720,
+				maxHeight	: 572,
+				fitToView	: false,
+				width		: '99%',
+				height		: '99%',
+				autoSize	: true,
+				autoCenter	: true,
+				closeClick	: false,
+				openEffect	: 'none',
+				closeEffect	: 'none',
+				modal		: true,
+				helpers 	: {
+					overlay		: {
+						closeClick : false
+					}
 				}
-			}
-		});
-	}); 
+			});
+		}); 
 	
-	//var initCTA = function () {
 		jQuery('BODY').on('submit', $ajaxForms, {}, function (oEvent) {
-			var formURL = (this.action)
-				form = this;
-			
+			var formURL = (this.action),
+				form = $(this),
+				formdata = form.serializeArray(),
+			    formdata.del = (jQuery(this).find('INPUT[name=del].btn').size() > 0) : 'delete' : null;
+			    
 			jQuery.fancybox.showLoading();
 			
 			jQuery.ajax({
 				headers : {
-					'Accept' : 'text/html, */*; q=0.01',
+					'Accept' : 'text/html',
 					'X-Fancybox' : 'true'
 				},
 				type	: "POST",
@@ -79,7 +81,7 @@ jQuery(document).ready(function ($) {
 						}
 					});
 					jQuery('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
-					//initCTA();
+
 				}
 			});
 			
@@ -94,6 +96,6 @@ jQuery(document).ready(function ($) {
 			oEvent.stopPropagation();
 			return (false);
 		});
-	//};
-	//initCTA();
+	};
+	initCTAXHR();
 });
