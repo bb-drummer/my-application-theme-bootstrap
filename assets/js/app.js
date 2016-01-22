@@ -47,7 +47,7 @@ var initDatatables = function () {
 			// actions' columns
 	        $columnDefs = [ {
 	            "targets": -1,
-	            "data": null,
+	            "data": "user_id",
 	            "sortable" : false,
 	            "searchable" : false,
 	            "defaultContent": function () {
