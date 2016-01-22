@@ -16,7 +16,7 @@ var initDatatables = function () {
 		};
 		
 		// has data source?
-		var $src = jQuery.data($table, "src");
+		var $src = jQuery($table).data("src");
 		console.log($src)
 		if ($src != "") {
 			datatableOptions.ajax = {
@@ -28,7 +28,7 @@ var initDatatables = function () {
 		// get columns
 		var $columns = [];
 		$table.find('THEAD TH').each(function () {
-			var columnname = jQuery.data(this, "column");
+			var columnname = jQuery(this).data("column");
 			console.log(columnname)
 			if (columnname != "") {
 				$columns.push({
