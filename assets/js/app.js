@@ -37,18 +37,19 @@ var initDatatables = function () {
 			}
 		});
 		if ($table.find('THEAD TH.actions').size() > 0) {
-			$columns.push(null);
-			/*$columns.push({
+			$columns.push({
 				data : "user_id"
-			});*/
+			});
 		}
 		if ($columns.length > 0) {
 			datatableOptions.columns = $columns
 		}
 		// actions' columns
         $columnDefs = [ {
-            "targets": $columns.length-1,
+            "targets": -1,
             "data": "user_id",
+            "sortable" : false,
+            "searchable" : false,
             "defaultContent": function () {
             	console.log(arguments, this);
             	return "-custom-";
