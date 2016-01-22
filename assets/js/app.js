@@ -88,9 +88,9 @@ var initCTAXHR = function () {
 	
 	jQuery($ajaxCTAOpen).each(function(){
 		var $this = jQuery(this),
-			$this.addClass('fancybox.ajax'),
 			$actioncontext = jQuery.data($this, "actioncontext");
-		
+
+		$this.addClass('fancybox.ajax');
 		if ($actioncontext != "") {
 			this.actioncontext = $actioncontext;
 			jQuery.fancybox.actioncontext = $actioncontext;
