@@ -36,7 +36,7 @@ var initDatatables = function () {
 		});
 		if ($table.find('THEAD TH.actions').size() > 0) {
 			$columns.push({
-				data : null // "_actions_"
+				null
 			});
 		}
 		if ($columns.length > 0) {
