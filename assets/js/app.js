@@ -37,14 +37,23 @@ var initDatatables = function () {
 			}
 		});
 		if ($table.find('THEAD TH.actions').size() > 0) {
-			$columns.push({
+			$columns.push(null);
+			/*$columns.push({
 				data : "_actions_"
-			});
+			});*/
 		}
 		if ($columns.length > 0) {
 			datatableOptions.columns = $columns
 		}
-
+		// actions' columns
+        $columnDefs = [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": function () {
+            	console.log(arguments, this);
+            	return "-custom-";
+            }
+        } ]
 		
 		console.log(datatableOptions)
 		// init table
