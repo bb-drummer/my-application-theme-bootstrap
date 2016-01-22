@@ -48,7 +48,7 @@ var initDatatables = function () {
 		// actions' columns
         $columnDefs = [ {
             "targets": $columns.length-1,
-            "data": null,
+            "data": "user_id",
             "defaultContent": function () {
             	console.log(arguments, this);
             	return "-custom-";
