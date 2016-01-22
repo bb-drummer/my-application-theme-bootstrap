@@ -42,19 +42,20 @@ var initDatatables = function () {
 			});
 		}
 		if ($columns.length > 0) {
-			datatableOptions.columns = $columns
+			datatableOptions.columns = $columns;
+			// actions' columns
+	        $columnDefs = [ {
+	            "targets": -1,
+	            "data": "user_id",
+	            "sortable" : false,
+	            "searchable" : false,
+	            "defaultContent": function () {
+	            	console.log(arguments, this);
+	            	return "-custom-";
+	            }
+	        } ];
+	        datatableOptions.columnDefs = $columnDefs;
 		}
-		// actions' columns
-        $columnDefs = [ {
-            "targets": -1,
-            "data": "user_id",
-            "sortable" : false,
-            "searchable" : false,
-            "defaultContent": function () {
-            	console.log(arguments, this);
-            	return "-custom-";
-            }
-        } ]
 		
 		console.log(datatableOptions)
 		// init table
