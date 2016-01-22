@@ -34,10 +34,15 @@ var initDatatables = function () {
 				});
 			}
 		});
+		if ($table.find('THEAD TH.actions').size() > 0) {
+			$columns.push({
+				data : null // "_actions_"
+			});
+		}
 		if ($columns.length > 0) {
 			datatableOptions.columns = $columns
 		}
-		
+		console.log(datatableOptions)
 		// init table
 		$table.dataTable(datatableOptions);
 	});
