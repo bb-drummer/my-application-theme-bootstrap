@@ -3,13 +3,10 @@
  */
 jQuery.noConflict();
 
-var datatables = [],
-	modals = []
-;
-
 var initDatatables = function () {
 	jQuery('.datatable').each(function (idx, elm) { 
 		$table = jQuery(this);
+		
 		var datatableOptions = {
 			renderer : 'bootstrap',
 			language : {
@@ -17,13 +14,31 @@ var initDatatables = function () {
 			},
 			ajax : null
 		};
-		$src = jQuery.data($table, "src");
+		
+		// has data source?
+		var $src = jQuery.data($table, "src");
 		if ($src != "") {
 			datatableOptions.ajax = {
 				url : $src,
 				type : "POST"
 			}
 		}
+		
+		// get columns
+		var $columns = [];
+		$table.find('THEAD TH').each(function () {
+			var columnname = jQuery.data(this, "column");
+			if (columnname != "") {
+				$columns.push({
+					data : columnname
+				});
+			}
+		});
+		if ($columns.length > 0) {
+			datatableOptions.coulmns = $columns
+		}
+		
+		// init table
 		$table.dataTable(datatableOptions);
 	});
 };
