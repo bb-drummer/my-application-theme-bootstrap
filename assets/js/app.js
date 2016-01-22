@@ -46,11 +46,11 @@ var initDatatables = function () {
 			datatableOptions.columns = $columns;
 			// actions' columns
 	        $columnDefs = [ {
-	            "targets": -1,
-	            "data": "user_id",
-	            "sortable" : false,
-	            "searchable" : false,
-	            "defaultContent": function () {
+	            targets : -1,
+	            data : "user_id",
+	            sortable : false,
+	            searchable : false,
+	            render: function ( data, type, full, meta ) {
 	            	console.log(arguments, this);
 	            	return "-custom-";
 	            }
