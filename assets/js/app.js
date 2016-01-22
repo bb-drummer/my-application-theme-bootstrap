@@ -47,7 +47,7 @@ var initDatatables = function () {
 		}
 		// actions' columns
         $columnDefs = [ {
-            "targets": $columns.length,
+            "targets": $columns.length-1,
             "data": null,
             "defaultContent": function () {
             	console.log(arguments, this);
