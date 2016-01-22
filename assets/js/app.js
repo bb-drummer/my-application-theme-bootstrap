@@ -35,7 +35,7 @@ var initDatatables = function () {
 			}
 		});
 		if ($columns.length > 0) {
-			datatableOptions.coulmns = $columns
+			datatableOptions.columns = $columns
 		}
 		
 		// init table
