@@ -219,9 +219,8 @@ jQuery.noConflict();
 				data	: formdata,
 				success	: function (data) {
 
-					$('.modal').modal('hide');
 					$(data).modal($modalDefaults);
-					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
+					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						console.log( tabledata );
 					}, true);
 					
@@ -234,7 +233,8 @@ jQuery.noConflict();
 		});
 
 		$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
-			$.modal.destroy();
+			$('.modal').modal('hide').remove();
+			//$.modal.destroy();
 			oEvent.preventDefault();
 			oEvent.stopPropagation();
 			return (false);
