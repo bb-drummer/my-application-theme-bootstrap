@@ -177,7 +177,7 @@ jQuery.noConflict();
 		$body.on('click', $ajaxCTAOpen, {}, function (oEvent) {
 			var $this = $(this),
 				$actioncontext = $.data($this, "actioncontext");
-	
+			
 			$.ajax({
 				headers : {
 					'Accept' : 'text/html'
@@ -218,7 +218,8 @@ jQuery.noConflict();
 				url		: formURL,
 				data	: formdata,
 				success	: function (data) {
-					
+
+					$.modal('hide');
 					$(data).modal($modalDefaults);
 					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
 						console.log( tabledata );
