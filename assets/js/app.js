@@ -188,8 +188,8 @@ jQuery.noConflict();
 				success	: function (data) {
 					
 					$(data).modal($modalDefaults);
-					$('.datatable').ajax.reload(function ( tabledata ) {
-						console.log( $.fancybox.actioncontext, tabledata );
+					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
+						console.log( tabledata );
 					}, true);
 					
 				}
@@ -219,10 +219,9 @@ jQuery.noConflict();
 				data	: formdata,
 				success	: function (data) {
 					
-					$.fancybox(data, $fancyboxDefaults);
-					$('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
-					$('.datatable').ajax.reload(function ( tabledata ) {
-						console.log( $.fancybox.actioncontext, tabledata );
+					$(data).modal($modalDefaults);
+					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
+						console.log( tabledata );
 					}, true);
 					
 				}
