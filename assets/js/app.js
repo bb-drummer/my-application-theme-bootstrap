@@ -30,7 +30,7 @@ jQuery.noConflict();
 			;
 			
 			// has data source?
-			/*var $src = $($table).data("src");
+			var $src = $($table).data("src");
 			if ($src) {
 				datatableOptions.ajax = {
 					url : $src,
@@ -54,19 +54,19 @@ jQuery.noConflict();
 					$columns.push(null);
 			        $columnDefs = [ {
 			            targets : -1,
-			            data : "user_id",
+			            data : "_actions_",
 			            sortable : false,
 			            searchable : false,
-			            render: function ( data, type, full, meta ) {
+			            /*render: function ( data, type, full, meta ) {
 			            	console.log(arguments, this);
 			            	return "-custom-";
-			            }
+			            }*/
 			        } ];
 			        datatableOptions.columnDefs = $columnDefs;
 				}
 				datatableOptions.columns = $columns;
 				// actions' columns
-			}*/
+			}
 			
 			// init table
 			console.log(datatableOptions);
@@ -206,7 +206,7 @@ jQuery.noConflict();
 				form = $(this),
 				formdata = form.serializeArray();
 			
-			formdata.push( ($('.fancybox-wrap INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null );
+			formdata.push( ($('.modal-dialog INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null );
 			
 			$.ajax({
 				headers : {
