@@ -166,23 +166,7 @@ jQuery.noConflict();
 	var initCTAXHR = function () {
 		var $body = $('BODY'),
 			$modalDefaults = {
-				minWidth	: 720,
-				maxWidth	: 720,
-				maxHeight	: 572,
-				fitToView	: false,
-				width		: '99%',
-				height		: '99%',
-				autoSize	: true,
-				autoCenter	: true,
-				closeClick	: false,
-				openEffect	: 'none',
-				closeEffect	: 'none',
-				modal		: true,
-				helpers 	: {
-					overlay		: {
-						closeClick : false
-					}
-				}
+				show: true
 			},
 			$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
 			$ajaxCTAOpen = "A.btn-cta-xhr",
