@@ -30,7 +30,7 @@ jQuery.noConflict();
 			;
 			
 			// has data source?
-			var $src = $($table).data("src");
+			/*var $src = $($table).data("src");
 			if ($src) {
 				datatableOptions.ajax = {
 					url : $src,
@@ -66,7 +66,7 @@ jQuery.noConflict();
 				}
 				datatableOptions.columns = $columns;
 				// actions' columns
-			}
+			}*/
 			
 			// init table
 			console.log(datatableOptions);
@@ -74,7 +74,7 @@ jQuery.noConflict();
 		});
 	};
 	
-	var initCTAXHR_FancyBox = function () {
+	/* var initCTAXHR_FancyBox = function () {
 		var $body = $('BODY'),
 			$fancyboxDefaults = {
 				minWidth	: 720,
@@ -161,7 +161,7 @@ jQuery.noConflict();
 			oEvent.stopPropagation();
 			return (false);
 		});
-	};
+	}; */
 	
 	var initCTAXHR = function () {
 		var $body = $('BODY'),
