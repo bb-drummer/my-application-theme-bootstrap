@@ -218,7 +218,8 @@ jQuery.noConflict();
 				url		: formURL,
 				data	: formdata,
 				success	: function (data) {
-
+					
+					$('.modal').modal('hide');
 					$(data).modal($modalDefaults);
 					$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
 						console.log( tabledata );
@@ -233,12 +234,17 @@ jQuery.noConflict();
 		});
 
 		$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
-			$('.modal').modal('hide').remove();
+			$('.modal').modal('hide');
 			//$.modal.destroy();
 			oEvent.preventDefault();
 			oEvent.stopPropagation();
 			return (false);
 		});
+
+		$body.on('hidden.bs.modal', '.modal', {}, function (oEvent) {
+			$('.modal').remove();
+		});
+		
 	};
 		
 	$(document).ready(function () {
