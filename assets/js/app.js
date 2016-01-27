@@ -74,7 +74,7 @@ jQuery.noConflict();
 		});
 	};
 	
-	var initCTAXHR = function () {
+	var initCTAXHR_FancyBox = function () {
 		var $body = $('BODY'),
 			$fancyboxDefaults = {
 				minWidth	: 720,
@@ -161,6 +161,95 @@ jQuery.noConflict();
 			oEvent.stopPropagation();
 			return (false);
 		});
+	};
+	
+	var initCTAXHR = function () {
+		/* var $body = $('BODY'),
+			$modalDefaults = {
+				minWidth	: 720,
+				maxWidth	: 720,
+				maxHeight	: 572,
+				fitToView	: false,
+				width		: '99%',
+				height		: '99%',
+				autoSize	: true,
+				autoCenter	: true,
+				closeClick	: false,
+				openEffect	: 'none',
+				closeEffect	: 'none',
+				modal		: true,
+				helpers 	: {
+					overlay		: {
+						closeClick : false
+					}
+				}
+			},
+			$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
+			$ajaxCTAOpen = "A.btn-cta-xhr",
+			$ajaxCTAClose = ".fancybox-wrap .btn-cta-xhr-close, .fancybox-wrap .flashmessages",
+			$ajaxForms = ".fancybox-wrap .form-xhr"
+		;
+		
+		$($ajaxCTAOpen).each(function(){
+			var $this = $(this),
+				$actioncontext = $.data($this, "actioncontext");
+	
+			$this.addClass('fancybox.ajax');
+			if ($actioncontext != "") {
+				this.actioncontext = $actioncontext;
+				$.fancybox.actioncontext = $actioncontext;
+			}
+			$modalDefaults = $.extend($modalDefaults, {
+				beforeClose : function () {
+					console.log( 
+						$.fancybox.actioncontext, 
+						($.fancybox.actioncontext) ? $($.fancybox.actioncontext).datatable().data() : undefined
+					);
+				}
+			})
+			$(this).fancybox($modalDefaults);
+		}); 
+	
+		$body.on('submit', $ajaxForms, {}, function (oEvent) {
+			var formURL = (this.action),
+				form = $(this),
+				formdata = form.serializeArray();
+			
+			formdata.push( ($('.fancybox-wrap INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null );
+			
+			$.fancybox.showLoading();
+			
+			$.ajax({
+				headers : {
+					'Accept' : 'text/html',
+					'X-Fancybox' : 'true'
+				},
+				type	: "POST",
+				cache	: false,
+				url		: formURL,
+				data	: formdata,
+				success	: function (data) {
+					
+					$.fancybox(data, $fancyboxDefaults);
+					$('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
+					$('.datatable').ajax.reload(function ( tabledata ) {
+						console.log( $.fancybox.actioncontext, tabledata );
+					}, true);
+					
+				}
+			});
+			
+			oEvent.preventDefault();
+			oEvent.stopPropagation();
+			return (false);
+		});
+
+		$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
+			$.modal.destroy();
+			oEvent.preventDefault();
+			oEvent.stopPropagation();
+			return (false);
+		}); */
 	};
 		
 	$(document).ready(function () {
