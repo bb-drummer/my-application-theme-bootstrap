@@ -188,7 +188,7 @@ jQuery.noConflict();
 				success	: function (data) {
 					
 					$(data).modal($modalDefaults);
-					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
+					$('#'+$actioncontext).dataTable().api().ajax.reload(function ( tabledata ) {
 						console.log( tabledata );
 					}, true);
 					
