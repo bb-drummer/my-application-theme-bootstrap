@@ -174,26 +174,10 @@ jQuery.noConflict();
 			$ajaxForms = ".modal-content .form-xhr"
 		;
 		
-		//$($ajaxCTAOpen).each(function(){
 		$body.on('click', $ajaxCTAOpen, {}, function (oEvent) {
 			var $this = $(this),
 				$actioncontext = $.data($this, "actioncontext");
 	
-			/*$this.addClass('fancybox.ajax');
-			if ($actioncontext != "") {
-				this.actioncontext = $actioncontext;
-				$.fancybox.actioncontext = $actioncontext;
-			}
-			$modalDefaults = $.extend($modalDefaults, {
-				beforeClose : function () {
-					console.log( 
-						$.fancybox.actioncontext, 
-						($.fancybox.actioncontext) ? $($.fancybox.actioncontext).datatable().data() : undefined
-					);
-				}
-			})
-			$(this).fancybox($modalDefaults);
-			*/
 			$.ajax({
 				headers : {
 					'Accept' : 'text/html'
