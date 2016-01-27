@@ -219,7 +219,7 @@ jQuery.noConflict();
 				data	: formdata,
 				success	: function (data) {
 
-					$.modal('hide');
+					$('.modal').modal('hide');
 					$(data).modal($modalDefaults);
 					$('.datatable').dataTable().ajax.reload(function ( tabledata ) {
 						console.log( tabledata );
