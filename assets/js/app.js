@@ -227,6 +227,10 @@ jQuery.noConflict();
 				}
 			});
 			
+			oEvent.preventDefault();
+			oEvent.stopPropagation();
+			return (false);
+			
 		}); 
 	
 		$body.on('submit', $ajaxForms, {}, function (oEvent) {
