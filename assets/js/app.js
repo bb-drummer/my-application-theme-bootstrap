@@ -176,7 +176,7 @@ jQuery.noConflict();
 				},
 				$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
 				$ajaxCTAOpen = "A.btn-cta-xhr.cta-xhr-modal",
-				$ajaxCTAClose = ".modal-content .btn-cta-xhr-close, .modal-content .alert, .modal-content .close",
+				$ajaxCTAClose = ".modal-content .btn-cta-xhr-close, .modal-content .alert, .modal-content .close, .cta-xhr-modal-close",
 				$ajaxForms = ".modal-content .form-xhr"
 			;
 			
