@@ -18,15 +18,21 @@ jQuery.noConflict();
 (function ($, doc, win) {
 	
 	var $doc = $(doc),
+		$lang = $('HTML').attr('lang') || 'en',
 		
 		// datatables
 		initDatatables = function () {
-			$('.datatable').each(function (idx, elm) { 
-				var $table = $(this),
+			$('.datatable').each(function (idx, elm) {
+				var $lang_url = {
+						'de' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/German.json',
+						'en' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/English.json',
+						'fr' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json',
+					},
+					$table = $(this),
 					datatableOptions = {
 						renderer : 'bootstrap',
 						language : {
-							url : '//cdn.datatables.net/plug-ins/1.10.9/i18n/German.json'
+							url : $lang_url[$lang]
 						},
 						ajax : null
 					}
