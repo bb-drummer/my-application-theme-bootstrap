@@ -253,7 +253,6 @@ jQuery.noConflict();
 			//
 			$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
 				$('.modal').modal('hide');
-				//$.modal.destroy();
 				oEvent.preventDefault();
 				oEvent.stopPropagation();
 				return (false);
