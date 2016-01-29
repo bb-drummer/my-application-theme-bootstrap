@@ -265,7 +265,7 @@ jQuery.noConflict();
 			});
 	
 			$body.on('hidden.bs.modal', '.modal', {}, function (oEvent) {
-				$('.modal').remove();
+				$('.modal, .modal-backdrop').remove();
 			});
 			
 		}
