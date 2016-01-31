@@ -33,7 +33,9 @@ jQuery.noConflict();
 						renderer : 'bootstrap',
 						language : {
 							url : $lang_url[$lang]
-						}
+						},
+						stateSave : true,
+						stateDuration : 60 * 60 * 24 * 1  // sec * min * h * d
 					}
 				;
 				
