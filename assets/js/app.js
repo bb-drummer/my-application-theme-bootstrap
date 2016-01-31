@@ -222,11 +222,11 @@ jQuery.noConflict();
 			// modal forms
 			//
 			$body.on('submit', $ajaxForms, {}, function (oEvent) {
-				var formURL = (this.action),
-					form = $(this),
-					formdata = form.serializeArray();
+				var $form = $(this),
+					formURL = $this.attr('action'),,
+					formData = $form.serializeArray();
 				
-				formdata.push( 
+				formData.push( 
 					($('.modal-dialog INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
 				);
 				
@@ -238,7 +238,7 @@ jQuery.noConflict();
 					type	: "POST",
 					cache	: false,
 					url		: formURL,
-					data	: formdata,
+					data	: formData,
 					success	: function (data) {
 						
 						$('.modal').modal('hide');
