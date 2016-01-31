@@ -23,58 +23,57 @@ jQuery.noConflict();
 		// datatables
 		initDatatables = function () {
 			$('.datatable').each(function (idx, elm) {
-				var $lang_url = {
+				var $table = $(this),
+					$lang_url = {
 						'de' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/German.json',
 						'en' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/English.json',
-						'fr' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json',
+						'fr' : '//cdn.datatables.net/plug-ins/1.10.9/i18n/French.json'
 					},
-					$table = $(this),
 					datatableOptions = {
 						renderer : 'bootstrap',
 						language : {
 							url : $lang_url[$lang]
-						},
-						ajax : null
+						}
 					}
 				;
 				
-				// has data source?
+				// has data source and is 'CRUD' table?
 				var $src = $($table).data("src");
-				if ($src) {
+				if ( $src && $($table).hasClass('crud') ) {
+					// set ajax options
 					datatableOptions.ajax = {
 						url : $src,
 						type : "POST"
 					};
-				}
-				
-				// get columns
-				var $columns = false;
-				$table.find('THEAD TH').each(function () {
-					var columnname = $(this).data("column");
-					if (columnname) {
-						if (!$columns) { $columns = []; }
-						$columns.push({
-							data : columnname
-						});
+					// set (data) columns
+					var $columns = false;
+					$table.find('THEAD TH').each(function () {
+						var columnname = $(this).data("column");
+						if (columnname) {
+							if (!$columns) { $columns = []; }
+							$columns.push({
+								data : columnname
+							});
+						}
+					});
+					if ($columns) {
+						// action columns
+						if ($table.find('THEAD TH.actions').size() > 0) {
+							$columns.push(null);
+					        $columnDefs = [ {
+					            targets : -1,
+					            data : "_actions_",
+					            sortable : false,
+					            searchable : false,
+					            /*render: function ( data, type, full, meta ) {
+					            	console.log(arguments, this);
+					            	return "-custom-";
+					            }*/
+					        } ];
+					        datatableOptions.columnDefs = $columnDefs;
+						}
+						datatableOptions.columns = $columns;
 					}
-				});
-				if ($columns) {
-					if ($table.find('THEAD TH.actions').size() > 0) {
-						$columns.push(null);
-				        $columnDefs = [ {
-				            targets : -1,
-				            data : "_actions_",
-				            sortable : false,
-				            searchable : false,
-				            /*render: function ( data, type, full, meta ) {
-				            	console.log(arguments, this);
-				            	return "-custom-";
-				            }*/
-				        } ];
-				        datatableOptions.columnDefs = $columnDefs;
-					}
-					datatableOptions.columns = $columns;
-					// actions' columns
 				}
 				
 				// init table
