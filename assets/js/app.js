@@ -227,7 +227,7 @@ jQuery.noConflict();
 					formData = $form.serializeArray();
 				
 				formData.push( 
-					($('.modal-dialog INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
+					($form.find('INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
 				);
 				
 				$.ajax({
