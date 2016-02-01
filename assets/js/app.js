@@ -112,10 +112,11 @@ jQuery.noConflict();
 							success	: function (data) {
 								
 								$td.find('> FORM.allow > INPUT[type=submit], > FORM.deny > INPUT[type=submit]').each(function (idx, elm) {
-									if ( $this.attr('disabled') == 'disabled' ) {
-										$this.attr('disabled', false);
+									var $formsubmitter = $(this);
+									if ( $formsubmitter.attr('disabled') == 'disabled' ) {
+										$formsubmitter.attr('disabled', false);
 									} else {
-										$this.attr('disabled', 'disabled');
+										$formsubmitter.attr('disabled', 'disabled');
 									}
 								});
 								
