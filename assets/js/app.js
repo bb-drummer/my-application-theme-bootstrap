@@ -47,7 +47,7 @@ jQuery.noConflict();
 						url : $src,
 						type : "POST"
 					};
-					// set (data) columns
+					// set (data) columns, read from TH's 'data-column' attribute
 					var $columns = false;
 					$table.find('THEAD TH').each(function () {
 						var columnname = $(this).data("column");
@@ -79,8 +79,54 @@ jQuery.noConflict();
 				}
 				
 				// init table
-				console.log(datatableOptions);
+				// console.log(datatableOptions);
 				$table.dataTable(datatableOptions);
+			});
+		},
+		
+		// acl matrix/table
+		initCTAXHRAclMatrix = function () {
+			$('.datatable.matrix').each(function (idx, elm) {
+				var $table = $(this),
+					$switches = $table.find('FORM.allow, FORM.deny')
+				;
+				
+				$switches.each(function (idx, elm) {
+					var $switchform = $(this),
+					;
+					$switchform.on('submit', function (oEvent) {
+						var $form = $(this),
+							formURL = $form.attr('action'),
+							formData = $form.serializeArray(),
+							$td = $form.parent()
+						;
+						$.ajax({
+							headers : {
+								'Accept' : 'text/html',
+								'X-layout' : 'modal'
+							},
+							type	: "POST",
+							cache	: false,
+							url		: formURL,
+							data	: formData,
+							success	: function (data) {
+								
+								$td.find('> FORM.allow, > FORM.deny').each(function (idx, elm) {
+									if ( $this.attr('disabled') == 'disabled' ) {
+										$this.attr('disabled', false);
+									} else {
+										$this.attr('disabled', 'disabled');
+									}
+								});
+								
+							}
+						});
+						
+						oEvent.preventDefault();
+						oEvent.stopPropagation();
+						return (false);
+					});
+				});
 			});
 		},
 	
