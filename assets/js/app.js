@@ -92,7 +92,7 @@ jQuery.noConflict();
 				;
 				
 				$switches.each(function (idx, elm) {
-					var $switchform = $(this),
+					var $switchform = $(this)
 					;
 					$switchform.on('submit', function (oEvent) {
 						var $form = $(this),
@@ -322,6 +322,7 @@ jQuery.noConflict();
 	$doc.ready(function () {
 		initDatatables();
 		initCTAXHRModals();
+		initCTAXHRAclMatrix();
 	});
 
 })(jQuery, document, window);
