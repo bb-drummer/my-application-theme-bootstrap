@@ -111,7 +111,7 @@ jQuery.noConflict();
 							data	: formData,
 							success	: function (data) {
 								
-								$td.find('> FORM.allow, > FORM.deny').each(function (idx, elm) {
+								$td.find('> FORM.allow > INPUT[type=submit], > FORM.deny > INPUT[type=submit]').each(function (idx, elm) {
 									if ( $this.attr('disabled') == 'disabled' ) {
 										$this.attr('disabled', false);
 									} else {
