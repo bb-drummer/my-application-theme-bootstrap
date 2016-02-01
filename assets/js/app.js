@@ -223,8 +223,9 @@ jQuery.noConflict();
 			//
 			$body.on('submit', $ajaxForms, {}, function (oEvent) {
 				var $form = $(this),
-					formURL = $this.attr('action'),,
-					formData = $form.serializeArray();
+					formURL = $this.attr('action'),
+					formData = $form.serializeArray()
+				;
 				
 				formData.push( 
 					($form.find('INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null 
