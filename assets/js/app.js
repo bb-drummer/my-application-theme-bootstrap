@@ -13,7 +13,7 @@
  * @copyright	copyright (c) 2016 Björn Bartels [dragon-projects.net] <info@dragon-projects.net>
  */
 
-jQuery.noConflict();
+//jQuery.noConflict();
 
 (function ($, doc, win) {
 	
