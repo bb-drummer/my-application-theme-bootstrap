@@ -321,9 +321,15 @@
 	;
 		
 	$doc.ready(function () {
-		initDatatables();
-		initCTAXHRModals();
-		initCTAXHRAclMatrix();
+		try {
+			initDatatables();
+		}
+		try {
+			initCTAXHRModals();
+		}
+		try {
+			initCTAXHRAclMatrix();
+		}
 	});
 
 })(jQuery, document, window);
