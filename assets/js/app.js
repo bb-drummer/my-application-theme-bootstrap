@@ -323,13 +323,13 @@
 	$doc.ready(function () {
 		try {
 			initDatatables();
-		} catch {}
+		} catch (ex) {}
 		try {
 			initCTAXHRModals();
-		} catch {}
+		} catch (ex) {}
 		try {
 			initCTAXHRAclMatrix();
-		} catch {}
+		} catch (ex) {}
 	});
 
 })(jQuery, document, window);
