@@ -94,9 +94,9 @@
 					->getMvcEvent()
 					->getRouteMatch()
 					->getParams();
-				if ($params["action"] == "index") {
-					echo $this->content;
-				} else {
+				//if ($params["action"] == "index") {
+					//echo $this->content;
+				//} else {
 					$panelLayout = $oComponents->Panel()
 					->setHeader( (isset($this->title) ? $this->title : "") )
 					->setContent(
@@ -109,7 +109,7 @@
 							;
 					
 					echo $panelLayout;
-				}
+				//}
 			?>
             <hr>
             <footer>
