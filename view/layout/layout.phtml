@@ -81,6 +81,35 @@
 				;
 				echo $oBreadcrumbs->render(); 
 			?>
+			
+			<div class="panel panel-toolbar">
+				<div class="panel-body">
+					<!-- div class="btn-group btn-group-sm" role="group" aria-label="<?php echo $this->translate('user profile actions'); ?>" -->
+						<?php 
+							/** @var \Admin\Entity\User $user **/
+							$oUser = $this->zfcUserIdentity();
+							//$nav = new \Zend\Navigation\Page\Mvc();
+							$toolbarPages = $this->layout()->getVariable("toolbar");
+							//$nav->addPages($toolbarPages);
+							//echo '<pre>';var_dump($toolbarPages);echo '</pre>'; die;
+							//print_r($nav);
+							$oToolbarNav = $oTwitterBootstrap->Navbar($toolbarPages)
+										->setUlClass('btn-group btn-group-sm')
+										/*->setSubUlClass('')
+										->setSubUlClassLevel1('')
+										->setDefaultLiClass('')
+										->setSubLiClass('')
+										->setSubLiClassLevel0('')*/
+										->setMinDepth(0)
+										->setMaxDepth(1)
+										->setIconPrefixClass('fa fa-')
+							;
+							echo $oToolbarNav->render();
+						?>
+					<!-- /div -->
+				</div>
+			</div>
+			
             <?php
 				echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
 				echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
@@ -97,18 +126,18 @@
 				//if ($params["action"] == "index") {
 					//echo $this->content;
 				//} else {
-					$panelLayout = $oComponents->Panel()
+				$panelLayout = $oComponents->Panel()
 					->setHeader( (isset($this->title) ? $this->title : "") )
 					->setContent(
-							array(
-									'tagname' => 'div',
-									'classnames' => 'panel-body alert-wrap',
-									'content' => $this->content,
-							)
-							)
-							;
+						array(
+								'tagname' => 'div',
+								'classnames' => 'panel-body alert-wrap',
+								'content' => $this->content,
+						)
+					)
+				;
 					
-					echo $panelLayout;
+				echo $panelLayout;
 				//}
 			?>
             <hr>
