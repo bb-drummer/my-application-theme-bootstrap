@@ -94,7 +94,7 @@
 							echo '<pre>';var_dump($toolbarPages);echo '</pre>';
 							//print_r($nav);
 							//$oToolbarNav = $oTwitterBootstrap->Navbar($toolbarPages)
-							$oToolbarNav = $oComponents->Toolbar($toolbarPages)
+							$oToolbarNav = $oComponents->Toolbar($toolbarPages->getPages())
 								->setUlClass('btn-group btn-group-sm')
 								/*->setSubUlClass('')
 								->setSubUlClassLevel1('')
