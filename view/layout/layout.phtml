@@ -4,6 +4,8 @@
 	$oTwitterBootstrap = $this->bootstrap();
 	/** @var \TwitterBootstrapAPI\View\Helper\Components $oComponents **/
 	$oComponents = $this->Components();
+	/** @var \Admin\Entity\User $user **/
+	$oUser = $this->zfcUserIdentity();
 ?>
 <html lang="<?php echo \Locale::getPrimaryLanguage(null) ?>">
     <head>
@@ -86,24 +88,22 @@
 				<div class="panel-body">
 					<!-- div class="btn-group btn-group-sm" role="group" aria-label="<?php echo $this->translate('user profile actions'); ?>" -->
 						<?php 
-							/** @var \Admin\Entity\User $user **/
-							$oUser = $this->zfcUserIdentity();
 							//$nav = new \Zend\Navigation\Page\Mvc();
 							$toolbarPages = $this->layout()->getVariable("toolbar");
 							//$nav->addPages($toolbarPages);
-							echo '<pre>';var_dump($toolbarPages);echo '</pre>'; die;
+							echo '<pre>';var_dump($toolbarPages);echo '</pre>';
 							//print_r($nav);
 							//$oToolbarNav = $oTwitterBootstrap->Navbar($toolbarPages)
 							$oToolbarNav = $oComponents->Toolbar($toolbarPages->getPages())
-										->setUlClass('btn-group btn-group-sm')
-										/*->setSubUlClass('')
-										->setSubUlClassLevel1('')
-										->setDefaultLiClass('')
-										->setSubLiClass('')
-										->setSubLiClassLevel0('')*/
-										->setMinDepth(0)
-										->setMaxDepth(1)
-										->setIconPrefixClass('fa fa-')
+								->setUlClass('btn-group btn-group-sm')
+								/*->setSubUlClass('')
+								->setSubUlClassLevel1('')
+								->setDefaultLiClass('')
+								->setSubLiClass('')
+								->setSubLiClassLevel0('')*/
+								->setMinDepth(0)
+								->setMaxDepth(1)
+								->setIconPrefixClass('fa fa-')
 							;
 							echo $oToolbarNav->render();
 						?>
