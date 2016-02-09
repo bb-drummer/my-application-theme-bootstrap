@@ -90,7 +90,7 @@
 					<!-- div class="btn-group btn-group-sm" role="group" aria-label="<?php echo $this->translate('user profile actions'); ?>" -->
 						<?php 
 							//$nav = new \Zend\Navigation\Page\Mvc();
-							$toolbarContainer = $this->layout()->getVariable("toolbarContainer");
+							$toolbarContainer = $this->toolbarContainer;// $this->layout()->getVariable("toolbarContainer");
 			echo '<pre>';var_dump($toolbarContainer);echo '</pre>'; //die;
 							//$nav->addPages($toolbarPages);
 							//echo '<pre>';var_dump($toolbarPages);echo '</pre>';
@@ -124,12 +124,12 @@
 				echo $this->flashMessenger()->render('info', array('info alert flashmessages'));
 			?>
 			<?php
-				$params = $this->getHelperPluginManager()
+				/*$params = $this->getHelperPluginManager()
 					->getServiceLocator()
 					->get('Application')
 					->getMvcEvent()
 					->getRouteMatch()
-					->getParams();
+					->getParams();*/
 				//if ($params["action"] == "index") {
 					//echo $this->content;
 				//} else {
