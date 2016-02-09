@@ -6,7 +6,7 @@
 	$oComponents = $this->Components();
 	/** @var \Admin\Entity\User $user **/
 	$oUser = $this->zfcUserIdentity();
-	$content = trim($this->content);
+	//$content = trim($this->content);
 ?>
 <html lang="<?php echo \Locale::getPrimaryLanguage(null) ?>">
     <head>
@@ -139,7 +139,7 @@
 						array(
 								'tagname' => 'div',
 								'classnames' => 'panel-body alert-wrap',
-								'content' => $content,
+								'content' => $this->content,
 						)
 					)
 				;
