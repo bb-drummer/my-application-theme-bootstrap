@@ -95,7 +95,7 @@
 							//echo '<pre>';var_dump($toolbarPages);echo '</pre>';
 							//print_r($nav);
 							//$oToolbarNav = $oTwitterBootstrap->Navbar($toolbarPages)
-							if ($toolbarPages) {
+							if ( is_string($toolbarPages) || ($toolbarPages instanceof \Zend\Navigation\AbstractContainer) ) {
 								$oToolbarNav = $oComponents->Toolbar($toolbarPages)
 									->setUlClass('btn-group btn-group-sm')
 									/*->setSubUlClass('')
