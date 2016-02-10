@@ -6,7 +6,6 @@
 	$oComponents = $this->Components();
 	/** @var \Admin\Entity\User $user **/
 	$oUser = $this->zfcUserIdentity();
-	//$content = trim($this->content);
 ?>
 <html lang="<?php echo \Locale::getPrimaryLanguage(null) ?>">
     <head>
@@ -29,9 +28,7 @@
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap-theme.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/fontawesome/css/font-awesome.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'js/fancy-box/source/jquery.fancybox.css'))
-				//->appendStylesheet($this->basePath($themePath . 'js/datatables/css/jquery.dataTables.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'js/datatables/css/dataTables.bootstrap.min.css'))
-				//->appendStylesheet('//cdn.datatables.net/1.10.9/css/jquery.dataTables.css')
 				->appendStylesheet($this->basePath($themePath . 'css/flag-icon-css/flag-icon.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/app.css'))
         	;
@@ -66,6 +63,7 @@
 						;
 						echo $oNavBar->render();
 					?>
+					
 					<?php 
 						$oLocaleMenu = $oBootstrapComponents->Languagemenu()
 							->setUlClass('nav navbar-nav navbar-right')
@@ -85,51 +83,35 @@
 				echo $oBreadcrumbs->render(); 
 			?>
 			
-			<div class="panel panel-toolbar">
-				<div class="panel-body">
-					<!-- div class="btn-group btn-group-sm" role="group" aria-label="<?php echo $this->translate('user profile actions'); ?>" -->
-						<?php 
-								$oToolbarNav = $oComponents->Toolbar('toolbarnavigation');
-								if ($oToolbarNav->hasPages()) {
-									$oToolbarNav 
-										->setUlClass('btn-group btn-group-sm')
-										->setSubUlClass('')
-										->setSubUlClassLevel1('')
-										->setDefaultLiClass('')
-										->setSubLiClass('')
-										->setSubLiClassLevel0('')
-										->setMinDepth(0)
-										->setMaxDepth(1)
-										->setIconPrefixClass('fa fa-')
-									;
-									$toolbarPanel = $oComponents->Panel()
-										//->setHeader('')
-										//->setHeader('')
-										->setContent( $oToolbarNav->render() )
-									;
-									echo $toolbarPanel;
-								}
-						?>
-					<!-- /div -->
-				</div>
-			</div>
-			
+			<?php 
+				$oToolbarNav = $oComponents->Toolbar('toolbarnavigation');
+				if ($oToolbarNav->hasPages()) {
+					$oToolbarNav 
+						->setUlClass('btn-group btn-group-sm')
+						->setSubUlClass('')
+						->setSubUlClassLevel1('')
+						->setDefaultLiClass('')
+						->setSubLiClass('')
+						->setSubLiClassLevel0('')
+						->setMinDepth(0)
+						->setMaxDepth(1)
+						->setIconPrefixClass('fa fa-')
+					;
+					$toolbarPanel = $oComponents->Panel()
+						->setContent( $oToolbarNav->render() )
+					;
+					echo $toolbarPanel;
+				}
+			?>
+
             <?php
 				echo $this->flashMessenger()->render('error', array('error alert flashmessages'));
 				echo $this->flashMessenger()->render('warning', array('warning alert flashmessages'));
 				echo $this->flashMessenger()->render('success', array('success alert flashmessages'));
 				echo $this->flashMessenger()->render('info', array('info alert flashmessages'));
 			?>
+			
 			<?php
-				/*$params = $this->getHelperPluginManager()
-					->getServiceLocator()
-					->get('Application')
-					->getMvcEvent()
-					->getRouteMatch()
-					->getParams();*/
-				//if ($params["action"] == "index") {
-					//echo $this->content;
-				//} else {
 				$panelLayout = $oComponents->Panel()
 					->setHeader( (isset($this->title) ? $this->title : "") )
 					->setContent(
@@ -140,10 +122,9 @@
 						)
 					)
 				;
-					
 				echo $panelLayout;
-				//}
 			?>
+			
             <hr>
             <footer>
                 <p>
@@ -158,6 +139,7 @@
                </p>
             </footer>
         </div> <!-- /container -->
+        
         <!-- Scripts -->
         <?php 
         	$this->inlineScript()
@@ -168,7 +150,6 @@
 				->appendFile($this->basePath($themePath . 'js/bootstrap/bootstrap.min.js'))
 				->appendFile($this->basePath($themePath . 'js/datatables/js/jquery.dataTables.js'))
 				->appendFile($this->basePath($themePath . 'js/datatables/js/dataTables.bootstrap.js'))
-				//->appendFile('//cdn.datatables.net/1.10.9/js/jquery.dataTables.js')
 				->appendFile($this->basePath($themePath . 'js/app.js'))
 			;
 			$jsfiles = $oTwitterBootstrap->Config()->get('app')->get('js');
