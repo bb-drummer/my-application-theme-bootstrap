@@ -89,29 +89,26 @@
 				<div class="panel-body">
 					<!-- div class="btn-group btn-group-sm" role="group" aria-label="<?php echo $this->translate('user profile actions'); ?>" -->
 						<?php 
-							//$nav = new \Zend\Navigation\Page\Mvc();
-				//			$toolbarContainer = $this->toolbarContainer;// $this->layout()->getVariable("toolbarContainer");
-			//echo '<pre>';var_dump($toolbarContainer);echo '</pre>'; //die;
-							//$nav->addPages($toolbarPages);
-							//echo '<pre>';var_dump($toolbarPages);echo '</pre>';
-							//$this->getHelperPluginManager()->getServiceLocator()->get('toolbarnavigation');
-							//var_dump($toolbarContainer);die();
-							//$oToolbarNav = $oTwitterBootstrap->Navbar($toolbarPages)
-							//if ( is_string($toolbarContainer) || ($toolbarContainer instanceof \Zend\Navigation\AbstractContainer) ) {
-								$oToolbarNav = $oComponents->Toolbar('toolbarnavigation'); // $toolbarContainer); // 
-								$oToolbarNav 
-									->setUlClass('btn-group btn-group-sm')
-									->setSubUlClass('')
-									->setSubUlClassLevel1('')
-									->setDefaultLiClass('')
-									->setSubLiClass('')
-									->setSubLiClassLevel0('')
-									->setMinDepth(0)
-									->setMaxDepth(1)
-									->setIconPrefixClass('fa fa-')
-								;
-								echo $oToolbarNav->render();
-							//}
+								$oToolbarNav = $oComponents->Toolbar('toolbarnavigation');
+								if ($oToolbarNav->hasPages()) {
+									$oToolbarNav 
+										->setUlClass('btn-group btn-group-sm')
+										->setSubUlClass('')
+										->setSubUlClassLevel1('')
+										->setDefaultLiClass('')
+										->setSubLiClass('')
+										->setSubLiClassLevel0('')
+										->setMinDepth(0)
+										->setMaxDepth(1)
+										->setIconPrefixClass('fa fa-')
+									;
+									$toolbarPanel = $oComponents->Panel()
+										//->setHeader('')
+										//->setHeader('')
+										->setContent( $oToolbarNav->render() )
+									;
+									echo $toolbarPanel;
+								}
 						?>
 					<!-- /div -->
 				</div>
