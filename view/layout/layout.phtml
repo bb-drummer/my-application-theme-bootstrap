@@ -53,8 +53,8 @@
                 </div>
 				<div class="collapse navbar-collapse">
 					<?php
-						$oTwitterBootstrap = $this->bootstrap();
-						$oBootstrapComponents = $oTwitterBootstrap->Components();
+						//$oTwitterBootstrap = $this->bootstrap();
+						//$oBootstrapComponents = $oTwitterBootstrap->Components();
 						$oNavBar = $oTwitterBootstrap->Navbar('navigation')
 							->setUlClass('nav navbar-nav')
 							->setMinDepth(0)
@@ -65,7 +65,7 @@
 					?>
 					
 					<?php 
-						$oLocaleMenu = $oBootstrapComponents->Languagemenu()
+						$oLocaleMenu = $oComponents->Languagemenu()
 							->setUlClass('nav navbar-nav navbar-right')
 							->setIconPrefixClass('flag-icon flag-icon-')
 						;
