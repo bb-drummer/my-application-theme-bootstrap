@@ -1,7 +1,11 @@
 {
   "name" : "themes/zf2-basic",
   "description" : "ZF2Basic - Responsive Bootstrap Theme ZF2 skeleton",
-  "version" : "1.0",
+  "version" : "0.0.1",
+  "require" : {
+    "php" : ">=5.5",
+    "zendframework/zendframework" : "dev-master",
+  },
   "license" : "BSD-3-Clause",
   "keywords" : [ "bootstrap", "theme", "Basic", "zendframework2", "skeleton" ],
   "extra" : {
