@@ -19,7 +19,7 @@
     "post-install-cmd" : [ ],
     "post-update-cmd" : [ ]
   },
-  "type" : "module",
+  "type" : "zend-extra",
   "homepage" : "http://git.dragon-projects.de:81/themes/zf2-basic",
   "authors" : [ {
     "name" : "Björn Bartels",
