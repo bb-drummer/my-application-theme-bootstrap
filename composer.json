@@ -10,8 +10,8 @@
   "license" : "BSD-3-Clause",
   "keywords" : [ "bootstrap", "theme", "Basic", "zendframework2", "skeleton" ],
   "extra" : {
+    "installer-name": "zf2-basic",
     "branch-alias" : {
-      "installer-name": "zf2-basic",
       "dev-master" : "master"
     }
   },
