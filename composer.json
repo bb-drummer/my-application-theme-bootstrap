@@ -1,5 +1,5 @@
 {
-  "name" : "themes/zf2-basic",
+  "name" : "my-application/zf2-theme-basic",
   "description" : "ZF2Basic - Responsive Bootstrap Theme ZF2 skeleton",
   "version" : "0.0.1",
   "require" : {
@@ -11,6 +11,7 @@
   "keywords" : [ "bootstrap", "theme", "Basic", "zendframework2", "skeleton" ],
   "extra" : {
     "branch-alias" : {
+      "installer-name": "zf2-basic",
       "dev-master" : "master"
     }
   },
@@ -21,7 +22,7 @@
     "post-update-cmd" : [ ]
   },
   "type" : "zend-extra",
-  "homepage" : "http://git.dragon-projects.de:81/themes/zf2-basic",
+  "homepage" : "http://git.dragon-projects.de:81/my-application/zf2-theme-basic",
   "authors" : [ {
     "name" : "Björn Bartels",
     "email" : "bartels@dragon-projects.net",
