@@ -3,6 +3,7 @@
   "description" : "ZF2Basic - Responsive Bootstrap Theme ZF2 skeleton",
   "version" : "0.0.1",
   "require" : {
+    "composer/installers": "~1.0",
     "php" : ">=5.5",
     "zendframework/zendframework" : "dev-master"
   },
