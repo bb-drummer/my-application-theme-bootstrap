@@ -131,97 +131,6 @@
 			});
 		},
 	
-		/* 
-		// (fancy-box) modals
-		initCTAXHR_FancyBox = function () {
-			var $body = $('BODY'),
-				$fancyboxDefaults = {
-					minWidth	: 720,
-					maxWidth	: 720,
-					maxHeight	: 572,
-					fitToView	: false,
-					width		: '99%',
-					height		: '99%',
-					autoSize	: true,
-					autoCenter	: true,
-					closeClick	: false,
-					openEffect	: 'none',
-					closeEffect	: 'none',
-					modal		: true,
-					helpers 	: {
-						overlay		: {
-							closeClick : false
-						}
-					}
-				},
-				$ajaxButtons = "A.btn[href*='add'], A.btn[href*='edit'], A.btn[href*='details'], A.btn[href*='delete']",
-				$ajaxCTAOpen = "A.btn-cta-xhr",
-				$ajaxCTAClose = ".fancybox-wrap .btn-cta-xhr-close, .fancybox-wrap .flashmessages",
-				$ajaxForms = ".fancybox-wrap .form-xhr"
-			;
-			
-			$($ajaxCTAOpen).each(function(){
-				var $this = $(this),
-					$actioncontext = $.data($this, "actioncontext");
-		
-				$this.addClass('fancybox.ajax');
-				if ($actioncontext != "") {
-					this.actioncontext = $actioncontext;
-					$.fancybox.actioncontext = $actioncontext;
-				}
-				$fancyboxDefaults = $.extend($fancyboxDefaults, {
-					beforeClose : function () {
-						console.log( 
-							$.fancybox.actioncontext, 
-							($.fancybox.actioncontext) ? $($.fancybox.actioncontext).datatable().data() : undefined
-						);
-					}
-				})
-				$(this).fancybox($fancyboxDefaults);
-			}); 
-		
-			$body.on('submit', $ajaxForms, {}, function (oEvent) {
-				var formURL = (this.action),
-					form = $(this),
-					formdata = form.serializeArray();
-				
-				formdata.push( ($('.fancybox-wrap INPUT[name=del].btn').size() > 0) ? {name: 'del', value: 'delete'} : null );
-				
-				$.fancybox.showLoading();
-				
-				$.ajax({
-					headers : {
-						'Accept' : 'text/html',
-						'X-Fancybox' : 'true'
-					},
-					type	: "POST",
-					cache	: false,
-					url		: formURL,
-					data	: formdata,
-					success	: function (data) {
-						
-						$.fancybox(data, $fancyboxDefaults);
-						$('.flashmessages').first().parents('.fancybox-skin').removeClass('fancybox-skin');
-						$('.datatable').ajax.reload(function ( tabledata ) {
-							console.log( $.fancybox.actioncontext, tabledata );
-						}, true);
-						
-					}
-				});
-				
-				oEvent.preventDefault();
-				oEvent.stopPropagation();
-				return (false);
-			});
-			
-			$body.on('click', $ajaxCTAClose, {}, function (oEvent) {
-				$.fancybox.close();
-				oEvent.preventDefault();
-				oEvent.stopPropagation();
-				return (false);
-			});
-		}, */
-	
 		// (bootstrap) modals
 		initCTAXHRModals = function () {
 			var $body = $('BODY'),
@@ -239,7 +148,8 @@
 			//
 			$body.on('click', $ajaxCTAOpen, {}, function (oEvent) {
 				var $this = $(this),
-					$actioncontext = $.data($this, "actioncontext");
+					$actioncontext = $.data($this, "actioncontext")
+					$btnUrl = $this.attr('href');
 				
 				$.ajax({
 					headers : {
@@ -252,6 +162,17 @@
 					success	: function (data) {
 						
 						$(data).modal($modalDefaults);
+						
+						document._old_href = window.location.href;
+					    window.history.pushState(
+				            {
+				                "html" : null,
+				                "pageTitle" : document.title
+				            },
+				            "",
+				            $btnUrl
+					    );
+						
 						$('#'+$actioncontext).dataTable().api().ajax.reload(function ( tabledata ) {
 							// console.log( tabledata );
 						}, true);
@@ -289,6 +210,17 @@
 					data	: formData,
 					success	: function (data) {
 						
+					    window.history.pushState(
+				            {
+				                "html" : null,
+				                "pageTitle" : document.title
+				            },
+				            "",
+				            formURL
+					    );
+						if (!document._old_href) {
+							document._old_href = formURL;
+						}
 						$('.modal').modal('hide');
 						$(data).modal($modalDefaults);
 						$('.datatable').dataTable().api().ajax.reload(function ( tabledata ) {
@@ -315,6 +247,17 @@
 	
 			$body.on('hidden.bs.modal', '.modal', {}, function (oEvent) {
 				$('.modal, .modal-backdrop').remove();
+				if (document._old_href) {
+				    window.history.pushState(
+			            {
+			                "html":null,
+			                "pageTitle":document.title
+			            },
+			            "",
+			            document._old_href
+				    );
+				    document._old_href = null;
+				}
 			});
 			
 		}
