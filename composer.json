@@ -9,7 +9,7 @@
   "license" : "BSD-3-Clause",
   "keywords" : [ "bootstrap", "theme", "zendframework2" ],
   "extra" : {
-    "installer-name" : "basic",
+    "installer-name" : "bootstrap",
     "branch-alias" : {
       "dev-master" : "master"
     }
