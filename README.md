@@ -1,4 +1,4 @@
-Basic - Responsive Bootstrap Theme (as introduced by ZF2 skeleton application)
+a basic responsive 'Bootstrap' theme
 ===============
 
 A fully responsive admin template. Based on **[Bootstrap 3](https://github.com/twbs/bootstrap)** framework. Highly customizable and easy to use. 
