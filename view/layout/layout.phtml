@@ -18,11 +18,11 @@
         <!-- styles -->
         <?php 
         	$themePath = "themes/bootstrap/assets/";
+        	$assetPath = "application-assets/dist/";
         	$this->headLink(array(
         			'rel' => 'shortcut icon', 
         			'type' => 'image/vnd.microsoft.icon', 
         			'href' => $this->basePath($themePath . $oTwitterBootstrap->AppFavicon())
-        			//'href' => '/'.$oTwitterBootstrap->AppFavicon()
      			))
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/bootstrap/css/bootstrap-theme.min.css'))
@@ -30,7 +30,7 @@
 				->appendStylesheet($this->basePath($themePath . 'js/datatables/css/dataTables.bootstrap.min.css'))
 				->appendStylesheet($this->basePath($themePath . 'css/flag-icon-css/flag-icon.min.css'))
 				
-				->appendStylesheet($this->basePath('application-assets/dist/myapplication.css'))
+				->appendStylesheet($this->basePath($assetPath . 'myapplication.css'))
         	;
             $cssfiles = $oTwitterBootstrap->Config()->get('app')->get('css');
             if (is_array($cssfiles) || ($cssfiles instanceof \Zend\Config\Config)) foreach ($cssfiles as $key => $file) {
@@ -127,13 +127,13 @@
             <hr>
             <footer>
                 <p>
-                	<span class="pull-left copyright">&copy; <?php echo date('Y') ?> by <a href="//dragon-projects.net" target="_blank">[dragon-projects.net]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
+                	<span class="pull-left copyright">&copy; <?php echo date('Y') ?> by <a href="//bjoernbartels.earth" target="_blank">[Bj&ouml;rn Bartels]</a> - <?php echo $this->translate('All rights reserved.') ?></span>
                 	<span class="pull-right poweredby">
                 		<?php echo $this->translate('Powered by') ?> &nbsp;
-                		<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
-                		<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
-                		<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
-                		<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($themePath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
+                		<a href="http://php.net" target="_blank"><img src="<?php echo $this->basePath($assetPath.'img/php-logo.gif') ?>" height="20" alt="php" /></a> &nbsp;
+                		<a href="http://framework.zend.com" target="_blank"><img src="<?php echo $this->basePath($assetPath.'img/zf2-logo.png') ?>" height="16" alt="ZendFramework 2" /></a> &nbsp;
+                		<a href="http://www.w3.org/html/" target="_blank"><img src="<?php echo $this->basePath($assetPath.'img/html5-badge-h-solo.png') ?>" height="16" alt="HTML5" /></a> &nbsp;
+                		<a href="http://jquery.com" target="_blank"><img src="<?php echo $this->basePath($assetPath.'img/jquery-logo.png') ?>" height="16" alt="jQuery" /></a>
                 	</span>
                </p>
             </footer>
