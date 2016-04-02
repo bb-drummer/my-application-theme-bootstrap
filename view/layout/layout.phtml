@@ -54,7 +54,7 @@
 					<?php
 						//$oTwitterBootstrap = $this->bootstrap();
 						//$oBootstrapComponents = $oTwitterBootstrap->Components();
-						$oNavBar = $oComponents->Topbar('navigation')
+						$oNavBar = $oComponents->Topbar()
 							->setUlClass('nav navbar-nav')
 							->setMinDepth(0)
 							->setMaxDepth(3)
@@ -75,7 +75,7 @@
         </nav>
         <div class="container-fluid">
 			<?php 
-				$oBreadcrumbs = $oComponents->Breadcrumbs('navigation')
+				$oBreadcrumbs = $oComponents->Breadcrumbs()
 					->setHeader( $this->translate('you are here :') )
 					->setMinDepth(0)
 				;
@@ -83,7 +83,7 @@
 			?>
 			
 			<?php 
-				$oToolbarNav = $oComponents->Toolbar('toolbarnavigation');
+				$oToolbarNav = $oComponents->Toolbar();
 				if ($oToolbarNav->hasPages()) {
 					$oToolbarNav 
 						->setUlClass('btn-group btn-group-sm')
